@@ -1,0 +1,28 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef ecoBigSets__oh
+#define ecoBigSets__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  SET ecoBigSets_CHARSET[7];
+
+
+
+
+import void ecoBigSets_Difference (SET *firstSet, INTEGER firstSet__len, SET *secondSet, INTEGER secondSet__len, SET *destSet, INTEGER destSet__len);
+import void ecoBigSets_Empty (SET *set, INTEGER set__len);
+import void ecoBigSets_Excl (SET *set, INTEGER set__len, INTEGER element);
+import void ecoBigSets_ExclRange (SET *set, INTEGER set__len, INTEGER firstElement, INTEGER lastElement);
+import BOOLEAN ecoBigSets_In (SET *set, INTEGER set__len, INTEGER element);
+import void ecoBigSets_Incl (SET *set, INTEGER set__len, INTEGER element);
+import void ecoBigSets_InclRange (SET *set, INTEGER set__len, INTEGER firstElement, INTEGER lastElement);
+import void ecoBigSets_Intersection (SET *firstSet, INTEGER firstSet__len, SET *secondSet, INTEGER secondSet__len, SET *destSet, INTEGER destSet__len);
+import BOOLEAN ecoBigSets_IsEmpty (SET *set, INTEGER set__len);
+import void ecoBigSets_SymmetricDiff (SET *firstSet, INTEGER firstSet__len, SET *secondSet, INTEGER secondSet__len, SET *destSet, INTEGER destSet__len);
+import void ecoBigSets_Union (SET *firstSet, INTEGER firstSet__len, SET *secondSet, INTEGER secondSet__len, SET *destSet, INTEGER destSet__len);
+import void *ecoBigSets__init (void);
+
+
+#endif
