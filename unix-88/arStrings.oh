@@ -1,0 +1,36 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef arStrings__oh
+#define arStrings__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct CHAR8_ARRAY *arStrings_StringPtr;
+
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+
+
+import void arStrings_Append (CHAR *source, INTEGER source__len, CHAR *destination, INTEGER destination__len);
+import void arStrings_Assign (CHAR *source, INTEGER source__len, CHAR *destination, INTEGER destination__len);
+import BYTE arStrings_Compare (CHAR *stringVal1, INTEGER stringVal1__len, CHAR *stringVal2, INTEGER stringVal2__len);
+import arStrings_StringPtr arStrings_Copy (CHAR *value, INTEGER value__len);
+import BOOLEAN arStrings_EndsWith (CHAR *str, INTEGER str__len, CHAR *suffix, INTEGER suffix__len);
+import BOOLEAN arStrings_Equal (CHAR *stringVal1, INTEGER stringVal1__len, CHAR *stringVal2, INTEGER stringVal2__len);
+import void arStrings_Extract (CHAR *source, INTEGER source__len, INTEGER startPos, INTEGER numberToExtract, CHAR *destination, INTEGER destination__len);
+import INTEGER arStrings_IndexOf (CHAR *str, INTEGER str__len, CHAR ch, INTEGER pos);
+import INTEGER arStrings_LastIndexOf (CHAR *str, INTEGER str__len, CHAR ch, INTEGER pos);
+import INTEGER arStrings_Length (CHAR *stringVal, INTEGER stringVal__len);
+import BOOLEAN arStrings_StartsWith (CHAR *str, INTEGER str__len, CHAR *prefix, INTEGER prefix__len);
+import void *arStrings__init (void);
+
+
+#endif

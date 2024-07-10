@@ -1,0 +1,67 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef OfrontOPB__oh
+#define OfrontOPB__oh
+
+#include "SYSTEM.oh"
+#include "OfrontOPT.oh"
+#include "OfrontOPS.oh"
+
+
+#ifndef CHAR16_ARRAY_DEF
+#define CHAR16_ARRAY_DEF
+typedef struct CHAR16_ARRAY {
+  INTEGER len[1];
+  LONGCHAR data[1];
+} CHAR16_ARRAY;
+#endif 
+
+import void (*OfrontOPB_typSize)(OfrontOPT_Struct);
+
+
+import void OfrontOPB_Assign (OfrontOPT_Node *x, OfrontOPT_Node y);
+import void OfrontOPB_Call (OfrontOPT_Node *x, OfrontOPT_Node apar, OfrontOPT_Object fp);
+import void OfrontOPB_CheckAssign (OfrontOPT_Struct x, OfrontOPT_Node *ynode);
+import void OfrontOPB_CheckBuffering (OfrontOPT_Node *n, OfrontOPT_Node left, OfrontOPT_Object par, OfrontOPT_Node *stat, OfrontOPT_Node *last);
+import void OfrontOPB_CheckParameters (OfrontOPT_Object fp, OfrontOPT_Object ap, BOOLEAN checkNames);
+import void OfrontOPB_CheckVarParBuffering (OfrontOPT_Node *n, OfrontOPT_Node *stat, OfrontOPT_Node *last);
+import void OfrontOPB_Construct (BYTE class, OfrontOPT_Node *x, OfrontOPT_Node y);
+import void OfrontOPB_DeRef (OfrontOPT_Node *x);
+import OfrontOPT_Node OfrontOPB_EmptySet (void);
+import void OfrontOPB_Enter (OfrontOPT_Node *procdec, OfrontOPT_Node stat, OfrontOPT_Object proc);
+import void OfrontOPB_Field (OfrontOPT_Node *x, OfrontOPT_Object y);
+import void OfrontOPB_GetTempVar (CHAR *name, INTEGER name__len, OfrontOPT_Struct typ, OfrontOPT_Object *obj);
+import void OfrontOPB_In (OfrontOPT_Node *x, OfrontOPT_Node y);
+import void OfrontOPB_Index (OfrontOPT_Node *x, OfrontOPT_Node y);
+import void OfrontOPB_Inittd (OfrontOPT_Node *inittd, OfrontOPT_Node *last, OfrontOPT_Struct typ);
+import void OfrontOPB_Link (OfrontOPT_Node *x, OfrontOPT_Node *last, OfrontOPT_Node y);
+import void OfrontOPB_MOp (BYTE op, OfrontOPT_Node *x);
+import LONGINT OfrontOPB_Max (BYTE form);
+import LONGINT OfrontOPB_Min (BYTE form);
+import void OfrontOPB_NewArrConst (OfrontOPT_Node *x);
+import OfrontOPT_Node OfrontOPB_NewBoolConst (BOOLEAN boolval);
+import OfrontOPT_Node OfrontOPB_NewIntConst (LONGINT intval);
+import OfrontOPT_Node OfrontOPB_NewLeaf (OfrontOPT_Object obj);
+import OfrontOPT_Node OfrontOPB_NewRealConst (REAL realval, OfrontOPT_Struct typ);
+import OfrontOPT_Node OfrontOPB_NewShortConst (LONGINT uintval, INTEGER size);
+import OfrontOPT_Node OfrontOPB_NewString (OfrontOPS_String str, struct CHAR16_ARRAY *lstr, INTEGER len);
+import OfrontOPT_Node OfrontOPB_Nil (void);
+import void OfrontOPB_Op (BYTE op, OfrontOPT_Node *x, OfrontOPT_Node y);
+import void OfrontOPB_OptIf (OfrontOPT_Node *x);
+import void OfrontOPB_Param (OfrontOPT_Node *ap, OfrontOPT_Object fp);
+import void OfrontOPB_PrepCall (OfrontOPT_Node *x, OfrontOPT_Object *fpar);
+import void OfrontOPB_Return (OfrontOPT_Node *x, OfrontOPT_Object proc);
+import void OfrontOPB_SetElem (OfrontOPT_Node *x);
+import void OfrontOPB_SetRange (OfrontOPT_Node *x, OfrontOPT_Node y);
+import LONGINT OfrontOPB_Short2Size (LONGINT n, BYTE form);
+import void OfrontOPB_StFct (OfrontOPT_Node *par0, BYTE fctno, SHORTINT parno);
+import void OfrontOPB_StPar0 (OfrontOPT_Node *par0, SHORTINT fctno);
+import void OfrontOPB_StPar1 (OfrontOPT_Node *par0, OfrontOPT_Node x, BYTE fctno);
+import void OfrontOPB_StParN (OfrontOPT_Node *par0, OfrontOPT_Node x, SHORTINT fctno, SHORTINT n);
+import void OfrontOPB_StaticLink (BYTE dlev);
+import void OfrontOPB_StrDeref (OfrontOPT_Node *x);
+import void OfrontOPB_TypTest (OfrontOPT_Node *x, OfrontOPT_Object obj, BOOLEAN guard);
+import void *OfrontOPB__init (void);
+
+
+#endif
