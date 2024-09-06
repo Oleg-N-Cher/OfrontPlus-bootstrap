@@ -1,0 +1,43 @@
+/* Ofront+ 1.0 -swC -44 */
+
+#ifndef bbLinLibW__oh
+#define bbLinLibW__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  INTEGER *bbLinLibW_PtrWSTR;
+
+
+
+
+
+#define bbLinLibW_fgetws(ws, n, fp)  (INTEGER *)fgetws((wchar_t *)ws, n, (FILE *)fp)
+#define bbLinLibW_fputws(ws, fp)  fputws((const wchar_t *)ws, (FILE *)fp)
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <wchar.h>
+#include <wctype.h>
+#define bbLinLibW_iswalpha(wc)  iswalpha((unsigned int)wc)
+#define bbLinLibW_iswlower(wc)  iswlower((unsigned int)wc)
+#define bbLinLibW_iswupper(wc)  iswupper((unsigned int)wc)
+#define bbLinLibW_mblen(s, n)  mblen((const char *)s, (size_t)n)
+#define bbLinLibW_mbrlen(s, n, ps)  (SYSTEM_ADRINT)mbrlen((const char *)s, (size_t)n, (mbstate_t *)ps)
+#define bbLinLibW_mbrtowc(wc, s, n, mbs)  (SYSTEM_ADRINT)mbrtowc((wchar_t *)wc, (const char *)s, (size_t)n, (mbstate_t *)mbs)
+#define bbLinLibW_mbsinit(ps)  mbsinit((const mbstate_t *)ps)
+#define bbLinLibW_mbsnrtowcs(dst, src, nmc, len, ps)  (SYSTEM_ADRINT)mbsnrtowcs((wchar_t *)dst, (const char **)src, (size_t)nmc, (size_t)len, (mbstate_t *)ps)
+#define bbLinLibW_mbsrtowcs(dst, src, len, ps)  (SYSTEM_ADRINT)mbsrtowcs((wchar_t *)dst, (const char **)src, (size_t)len, (mbstate_t *)ps);
+#define bbLinLibW_mbstowcs(pwcs, s, n)  (SYSTEM_ADRINT)mbstowcs((wchar_t *)pwcs, (const char *)s, (size_t)n)
+#define bbLinLibW_mbtowc(pwc, s, n)  mbtowc((wchar_t *)pwc, (const char *)s, (size_t)n)
+#define bbLinLibW_setlocale(category, locale)  (CHAR*)setlocale(category, (const char *)locale)
+#define bbLinLibW_towlower(wc)  towlower((unsigned int)wc)
+#define bbLinLibW_towupper(wc)  towupper((unsigned int)wc)
+#define bbLinLibW_wcrtomb(s, wc, ps)  (SYSTEM_ADRINT)wcrtomb((char *)s, (wchar_t)wc, (mbstate_t *)ps)
+#define bbLinLibW_wcsnrtombs(dst, src, nwc, len, ps)  (SYSTEM_ADRINT)wcsnrtombs((char *)dst, (const wchar_t **)src, (size_t)nwc, (size_t)len, (mbstate_t *)ps)
+#define bbLinLibW_wcsrtombs(dst, src, len, ps)  (SYSTEM_ADRINT)wcsrtombs((char *)dst, (const wchar_t **)wc, (size_t)len, (mbstate_t *)ps)
+#define bbLinLibW_wcstombs(s, pwcs, n)  (SYSTEM_ADRINT)wcstombs((char *)s, (const wchar_t *)pwcs, (size_t) n)
+#define bbLinLibW_wctomb(s, wchar)  wctomb((char *)s, (const wchar_t *)wchar)
+#define bbLinLibW_wprintf(fmt)  wprintf((const wchar_t *)fmt)
+
+#endif

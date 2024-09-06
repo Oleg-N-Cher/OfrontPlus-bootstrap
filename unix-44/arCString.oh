@@ -1,0 +1,28 @@
+/* Ofront+ 1.0 -s2 -44 */
+
+#ifndef arCString__oh
+#define arCString__oh
+
+#include "SYSTEM.oh"
+#include "arC.oh"
+
+typedef
+  struct CHAR8_ARRAY *arCString_String;
+
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+
+
+import arCString_String arCString_Copy (arC_string src);
+import void arCString_CopyToArray (arC_string src, CHAR *dst, INTEGER dst__len);
+
+#include <string.h>
+
+#endif
