@@ -1,0 +1,15 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef OfrontErrors__oh
+#define OfrontErrors__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void OfrontErrors_LogErrMsg (SHORTINT n);
+import void *OfrontErrors__init (void);
+
+
+#endif

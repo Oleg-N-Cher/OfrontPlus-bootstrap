@@ -1,0 +1,58 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef ZlibInflate__oh
+#define ZlibInflate__oh
+
+#include "SYSTEM.oh"
+#include "ZlibBuffers.oh"
+
+typedef
+  struct ZlibInflate_Result {
+    INTEGER code;
+    struct CHAR8_ARRAY *msg;
+  } ZlibInflate_Result;
+
+typedef
+  struct ZlibInflate_Stream {
+    ZlibBuffers_Buffer in, out;
+    ZlibInflate_Result res;
+    BOOLEAN wrapper, open;
+    char _prvt0[486];
+  } ZlibInflate_Stream;
+
+
+#ifndef ZlibInflate_Node_ARRAY_DEF
+#define ZlibInflate_Node_ARRAY_DEF
+typedef struct ZlibInflate_Node_ARRAY {
+  INTEGER len[1];
+  struct ZlibInflate_Node {
+    SHORTINT _prvt0;
+    char _prvt1[2];
+  } data[1];
+} ZlibInflate_Node_ARRAY;
+#endif 
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+
+import void **ZlibInflate_Result__typ;
+import void **ZlibInflate_Stream__typ;
+
+import void ZlibInflate_Close (ZlibInflate_Stream *stream, void **stream__typ);
+import void ZlibInflate_Inflate (ZlibInflate_Stream *stream, void **stream__typ, BYTE flush);
+import void ZlibInflate_Open (ZlibInflate_Stream *stream, void **stream__typ, BOOLEAN wrapper);
+import void ZlibInflate_Reset (ZlibInflate_Stream *stream, void **stream__typ);
+import void ZlibInflate_SetDictionary (ZlibInflate_Stream *stream, void **stream__typ, CHAR *dict, INTEGER dict__len, INTEGER dictLen);
+import void ZlibInflate_Sync (ZlibInflate_Stream *stream, void **stream__typ);
+import BOOLEAN ZlibInflate_SyncPoint (ZlibInflate_Stream *stream, void **stream__typ);
+import void ZlibInflate_Uncompress (CHAR *src, INTEGER src__len, CHAR *dst, INTEGER dst__len, INTEGER srcoffset, INTEGER srclen, INTEGER dstoffset, INTEGER dstlen, INTEGER *len, ZlibInflate_Result *res, void **res__typ);
+import void *ZlibInflate__init (void);
+
+
+#endif
