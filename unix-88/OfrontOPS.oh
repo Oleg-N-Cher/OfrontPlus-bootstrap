@@ -1,0 +1,46 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef OfrontOPS__oh
+#define OfrontOPS__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  CHAR OfrontOPS_Name[48];
+
+typedef
+  struct CHAR8_ARRAY *OfrontOPS_String;
+
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+#ifndef CHAR16_ARRAY_DEF
+#define CHAR16_ARRAY_DEF
+typedef struct CHAR16_ARRAY {
+  INTEGER len[1];
+  LONGCHAR data[1];
+} CHAR16_ARRAY;
+#endif 
+
+import OfrontOPS_Name OfrontOPS_name;
+import OfrontOPS_String OfrontOPS_str;
+import struct CHAR16_ARRAY *OfrontOPS_lstr;
+import SHORTINT OfrontOPS_numtyp;
+import LONGINT OfrontOPS_intval;
+import SHORTREAL OfrontOPS_realval;
+import REAL OfrontOPS_lrlval;
+import BOOLEAN OfrontOPS_lowcase;
+
+
+import void OfrontOPS_Get (BYTE *sym);
+import void OfrontOPS_Init (void);
+import void *OfrontOPS__init (void);
+
+
+#endif

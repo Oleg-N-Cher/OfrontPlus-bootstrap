@@ -1,0 +1,23 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef oo2cConvTypes__oh
+#define oo2cConvTypes__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct oo2cConvTypes_ScanDesc *oo2cConvTypes_ScanState;
+
+typedef
+  struct oo2cConvTypes_ScanDesc {
+    void (*p)(CHAR, SHORTINT*, oo2cConvTypes_ScanState*);
+  } oo2cConvTypes_ScanDesc;
+
+
+
+import void **oo2cConvTypes_ScanDesc__typ;
+
+import void *oo2cConvTypes__init (void);
+
+
+#endif

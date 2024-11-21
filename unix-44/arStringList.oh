@@ -1,0 +1,44 @@
+/* Ofront+ 1.0 -s2 -44 */
+
+#ifndef arStringList__oh
+#define arStringList__oh
+
+#include "SYSTEM.oh"
+#include "arStrings.oh"
+
+typedef
+  struct CHAR8_ARRAY_PTR_ARRAY *arStringList_Array;
+
+typedef
+  struct arStringList_List__rec *arStringList_List;
+
+typedef
+  struct arStringList_List__rec {
+    arStrings_StringPtr name;
+    arStringList_List next;
+  } arStringList_List__rec;
+
+
+#ifndef CHAR8_ARRAY_PTR_ARRAY_DEF
+#define CHAR8_ARRAY_PTR_ARRAY_DEF
+typedef struct CHAR8_ARRAY_PTR_ARRAY {
+  INTEGER len[1];
+  struct CHAR8_ARRAY *data[1];
+} CHAR8_ARRAY_PTR_ARRAY;
+#endif 
+
+
+import void **arStringList_List__rec__typ;
+
+import void arStringList_Add (arStringList_List *list, arStrings_StringPtr string);
+import BOOLEAN arStringList_ArrayContains (arStringList_Array array, arStrings_StringPtr string);
+import BOOLEAN arStringList_Contains (arStringList_List list, arStrings_StringPtr string);
+import arStrings_StringPtr arStringList_Copy (CHAR *name, INTEGER name__len);
+import void arStringList_Include (arStringList_List *list, arStrings_StringPtr string);
+import void arStringList_Merge (arStringList_List src, arStringList_List *dest);
+import void arStringList_Reverse (arStringList_List *list);
+import arStringList_Array arStringList_ToArray (arStringList_List list);
+import void *arStringList__init (void);
+
+
+#endif
