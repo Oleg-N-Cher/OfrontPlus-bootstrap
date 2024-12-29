@@ -1,0 +1,33 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef arStringAssoc__oh
+#define arStringAssoc__oh
+
+#include "SYSTEM.oh"
+#include "arStringList.oh"
+#include "arStrings.oh"
+
+typedef
+  struct arStringAssoc_Assoc__rec *arStringAssoc_Assoc;
+
+typedef
+  struct arStringAssoc_Assoc__rec {
+    arStrings_StringPtr key, value;
+    arStringAssoc_Assoc next;
+  } arStringAssoc_Assoc__rec;
+
+
+
+import void **arStringAssoc_Assoc__rec__typ;
+
+import arStringAssoc_Assoc arStringAssoc_Find (arStringAssoc_Assoc assoc, CHAR *key, INTEGER key__len);
+import arStringAssoc_Assoc arStringAssoc_FindValue (arStringAssoc_Assoc assoc, CHAR *key, INTEGER key__len);
+import arStrings_StringPtr arStringAssoc_Get (arStringAssoc_Assoc assoc, CHAR *key, INTEGER key__len);
+import arStringList_List arStringAssoc_GetAll (arStringAssoc_Assoc assoc, CHAR *key, INTEGER key__len);
+import arStrings_StringPtr arStringAssoc_GetKey (arStringAssoc_Assoc assoc, CHAR *value, INTEGER value__len);
+import void arStringAssoc_Set (arStringAssoc_Assoc *assoc, CHAR *key, INTEGER key__len, CHAR *value, INTEGER value__len);
+import void arStringAssoc_Set0 (arStringAssoc_Assoc *assoc, CHAR *key, INTEGER key__len, CHAR *value, INTEGER value__len);
+import void *arStringAssoc__init (void);
+
+
+#endif
