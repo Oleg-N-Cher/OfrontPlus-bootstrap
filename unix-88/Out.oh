@@ -1,0 +1,28 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef Out__oh
+#define Out__oh
+
+#include "SYSTEM.oh"
+
+
+import BOOLEAN Out_IsConsole;
+
+
+import void Out_Char (CHAR ch);
+import void Out_ConvertL (REAL x, SHORTINT n, CHAR *d, INTEGER d__len);
+import SHORTINT Out_Expo (SHORTREAL x);
+import void Out_Flush (void);
+import void Out_Hex (LONGINT x, LONGINT n);
+import void Out_Int (LONGINT x, LONGINT n);
+import void Out_Ln (void);
+import void Out_LongReal (REAL x, SHORTINT n);
+import void Out_Open (void);
+import void Out_Real (SHORTREAL x, SHORTINT n);
+import void Out_RealFix (SHORTREAL x, SHORTINT n, SHORTINT k);
+import void Out_String (CHAR *str, INTEGER str__len);
+import REAL Out_Ten (SHORTINT e);
+import void *Out__init (void);
+
+
+#endif

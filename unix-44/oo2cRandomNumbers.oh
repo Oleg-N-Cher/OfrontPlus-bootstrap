@@ -1,0 +1,18 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef oo2cRandomNumbers__oh
+#define oo2cRandomNumbers__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void oo2cRandomNumbers_GetSeed (INTEGER *seed);
+import void oo2cRandomNumbers_PutSeed (INTEGER seed);
+import INTEGER oo2cRandomNumbers_RND (INTEGER range);
+import SHORTREAL oo2cRandomNumbers_Random (void);
+import void *oo2cRandomNumbers__init (void);
+
+
+#endif

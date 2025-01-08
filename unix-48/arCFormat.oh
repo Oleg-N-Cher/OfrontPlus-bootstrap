@@ -1,0 +1,19 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef arCFormat__oh
+#define arCFormat__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+
+#define arCFormat_IntToString(result, result__len, format, format__len, value)  snprintf(result, result__len, (const char *)format, value)
+#define arCFormat_RealToString(result, result__len, format, format__len, value)  snprintf(result, result__len, (const char *)format, value)
+#define arCFormat_StringToInt(str, str__len, value)  sscanf((const char *)str, "%d", value)
+#define arCFormat_StringToReal(str, str__len, value)  sscanf((const char *)str, "%lf", value)
+#define arCFormat_StringToString(result, result__len, format, format__len, value, value__len)  snprintf(result, result__len, (const char *)format, (const char *)value)
+#include <stdio.h>
+
+#endif

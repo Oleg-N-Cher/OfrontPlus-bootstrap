@@ -1,0 +1,37 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef oo2cLongStrings__oh
+#define oo2cLongStrings__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void oo2cLongStrings_Append (LONGCHAR *source, INTEGER source__len, LONGCHAR *destination, INTEGER destination__len);
+import void oo2cLongStrings_Assign (LONGCHAR *source, INTEGER source__len, LONGCHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cLongStrings_CanAppendAll (INTEGER sourceLength, LONGCHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cLongStrings_CanAssignAll (INTEGER sourceLength, LONGCHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cLongStrings_CanConcatAll (INTEGER source1Length, INTEGER source2Length, LONGCHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cLongStrings_CanDeleteAll (INTEGER stringLength, INTEGER startPos, INTEGER numberToDelete);
+import BOOLEAN oo2cLongStrings_CanExtractAll (INTEGER sourceLength, INTEGER startPos, INTEGER numberToExtract, LONGCHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cLongStrings_CanInsertAll (INTEGER sourceLength, INTEGER startPos, LONGCHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cLongStrings_CanReplaceAll (INTEGER sourceLength, INTEGER startPos, LONGCHAR *destination, INTEGER destination__len);
+import void oo2cLongStrings_Capitalize (LONGCHAR *stringVar, INTEGER stringVar__len);
+import BYTE oo2cLongStrings_Compare (LONGCHAR *stringVal1, INTEGER stringVal1__len, LONGCHAR *stringVal2, INTEGER stringVal2__len);
+import void oo2cLongStrings_Concat (LONGCHAR *source1, INTEGER source1__len, LONGCHAR *source2, INTEGER source2__len, LONGCHAR *destination, INTEGER destination__len);
+import void oo2cLongStrings_Delete (LONGCHAR *stringVar, INTEGER stringVar__len, INTEGER startPos, INTEGER numberToDelete);
+import BOOLEAN oo2cLongStrings_Equal (LONGCHAR *stringVal1, INTEGER stringVal1__len, LONGCHAR *stringVal2, INTEGER stringVal2__len);
+import void oo2cLongStrings_Extract (LONGCHAR *source, INTEGER source__len, INTEGER startPos, INTEGER numberToExtract, LONGCHAR *destination, INTEGER destination__len);
+import void oo2cLongStrings_FindDiff (LONGCHAR *stringVal1, INTEGER stringVal1__len, LONGCHAR *stringVal2, INTEGER stringVal2__len, BOOLEAN *differenceFound, INTEGER *posOfDifference);
+import void oo2cLongStrings_FindNext (LONGCHAR *pattern, INTEGER pattern__len, LONGCHAR *stringToSearch, INTEGER stringToSearch__len, INTEGER startPos, BOOLEAN *patternFound, INTEGER *posOfPattern);
+import void oo2cLongStrings_FindPrev (LONGCHAR *pattern, INTEGER pattern__len, LONGCHAR *stringToSearch, INTEGER stringToSearch__len, INTEGER startPos, BOOLEAN *patternFound, INTEGER *posOfPattern);
+import void oo2cLongStrings_Insert (LONGCHAR *source, INTEGER source__len, INTEGER startPos, LONGCHAR *destination, INTEGER destination__len);
+import INTEGER oo2cLongStrings_Length (LONGCHAR *stringVal, INTEGER stringVal__len);
+import void oo2cLongStrings_Long (CHAR *source, INTEGER source__len, LONGCHAR *destination, INTEGER destination__len);
+import void oo2cLongStrings_Replace (LONGCHAR *source, INTEGER source__len, INTEGER startPos, LONGCHAR *destination, INTEGER destination__len);
+import void oo2cLongStrings_Short (LONGCHAR *source, INTEGER source__len, CHAR repl, CHAR *destination, INTEGER destination__len);
+import void *oo2cLongStrings__init (void);
+
+
+#endif
