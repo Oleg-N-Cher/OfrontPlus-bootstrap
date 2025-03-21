@@ -1,0 +1,50 @@
+/* Ofront+ 1.0 -s2 -44 */
+
+#ifndef arMath__oh
+#define arMath__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+
+#define arMath_ceil(x)  ceil((double)x)
+#define arMath_ceilf(x)  ceilf((float)x)
+#define arMath_cos(x)  cos((double)x)
+#define arMath_cosf(x)  cosf((float)x)
+#define arMath_cosh(x)  cosh((double)x)
+#define arMath_coshf(x)  coshf((float)x)
+#define arMath_exp(x)  exp((double)x)
+#define arMath_expf(x)  expf((float)x)
+#define arMath_fabs(x)  fabs((double)x)
+#define arMath_fabsf(x)  fabsf((float)x)
+#define arMath_floor(x)  floor((double)x)
+#define arMath_floorf(x)  floorf((float)x)
+#define arMath_fmod(x, y)  fmod((double)x, (double)y)
+#define arMath_fmodf(x, y)  fmod((float)x, (float)y)
+#include <math.h>
+#define arMath_int(x)  (int)(x)
+#define arMath_log(x)  log((double)x)
+#define arMath_log10(x)  log10((double)x)
+#define arMath_log10f(x)  log10f((float)x)
+#define arMath_log2(x)  log2((double)x)
+#define arMath_log2f(x)  log2f((float)x)
+#define arMath_logf(x)  logf((float)x)
+#define arMath_modf(x, i)  modf(x, i)
+#define arMath_pow(x, y)  pow((double)x, (double)y)
+#define arMath_powf(x, y)  powf((float)x, (float)y)
+#define arMath_round(x)  round((double)x)
+#define arMath_roundf(x)  roundf((float)x)
+#define arMath_sin(x)  sin((double)x)
+#define arMath_sinf(x)  sinf((float)x)
+#define arMath_sinh(x)  sinh((double)x)
+#define arMath_sinhf(x)  sinhf((float)x)
+#define arMath_sqrt(x)  sqrt((double)x)
+#define arMath_sqrtf(x)  sqrtf((float)x)
+#define arMath_tan(x)  tan((double)x)
+#define arMath_tanf(x)  tanf((float)x)
+#define arMath_tanh(x)  tanh((double)x)
+#define arMath_tanhf(x)  tanhf((float)x)
+
+#endif
