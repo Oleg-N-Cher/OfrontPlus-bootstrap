@@ -1,0 +1,51 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef ZlibDeflate__oh
+#define ZlibDeflate__oh
+
+#include "SYSTEM.oh"
+#include "ZlibBuffers.oh"
+
+typedef
+  struct ZlibDeflate_Stream {
+    ZlibBuffers_Buffer in, out;
+    INTEGER res;
+    BYTE level, strategy, dataType;
+    BOOLEAN wrapper, open;
+    char _prvt0[2595];
+  } ZlibDeflate_Stream;
+
+
+#ifndef INT16_ARRAY_DEF
+#define INT16_ARRAY_DEF
+typedef struct INT16_ARRAY {
+  INTEGER len[1];
+  SHORTINT data[1];
+} INT16_ARRAY;
+#endif 
+
+#ifndef ZlibDeflate_Node_ARRAY_DEF
+#define ZlibDeflate_Node_ARRAY_DEF
+typedef struct ZlibDeflate_Node_ARRAY {
+  INTEGER len[1];
+  struct ZlibDeflate_Node {
+    SHORTINT _prvt0;
+    char _prvt1[2];
+  } data[1];
+} ZlibDeflate_Node_ARRAY;
+#endif 
+
+
+import void **ZlibDeflate_Stream__typ;
+
+import void ZlibDeflate_Close (ZlibDeflate_Stream *stream, void **stream__typ);
+import void ZlibDeflate_Compress (CHAR *src, INTEGER src__len, CHAR *dst, INTEGER dst__len, INTEGER srcoffset, INTEGER srclen, INTEGER dstoffset, INTEGER dstlen, BYTE level, BYTE strategy, INTEGER *len, INTEGER *res);
+import void ZlibDeflate_Deflate (ZlibDeflate_Stream *stream, void **stream__typ, BYTE flush);
+import void ZlibDeflate_Open (ZlibDeflate_Stream *stream, void **stream__typ, BYTE level, BYTE strategy, BOOLEAN wrapper);
+import void ZlibDeflate_Reset (ZlibDeflate_Stream *stream, void **stream__typ);
+import void ZlibDeflate_SetDictionary (ZlibDeflate_Stream *stream, void **stream__typ, CHAR *dict, INTEGER dict__len, INTEGER len);
+import void ZlibDeflate_SetParams (ZlibDeflate_Stream *stream, void **stream__typ, BYTE level, BYTE strategy);
+import void *ZlibDeflate__init (void);
+
+
+#endif
