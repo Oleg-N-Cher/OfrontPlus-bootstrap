@@ -1,0 +1,16 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef OfrontOPP__oh
+#define OfrontOPP__oh
+
+#include "SYSTEM.oh"
+#include "OfrontOPT.oh"
+
+
+
+
+import void OfrontOPP_Module (OfrontOPT_Node *prog, SET opt);
+import void *OfrontOPP__init (void);
+
+
+#endif

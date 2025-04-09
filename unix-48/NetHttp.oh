@@ -1,0 +1,38 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef NetHttp__oh
+#define NetHttp__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct CHAR8_ARRAY *NetHttp_Buffer;
+
+typedef
+  struct NetHttp_Socket {
+    INTEGER _prvt0;
+    BOOLEAN ok;
+    CHAR err[128];
+    NetHttp_Buffer data;
+    INTEGER datasize;
+  } NetHttp_Socket;
+
+import void NetHttp_Socket_Get (NetHttp_Socket *self, void **self__typ, CHAR *url, INTEGER url__len);
+#define __NetHttp_Socket_Get(self, self__typ, url, url__len) __SEND(self__typ, NetHttp_Socket_Get, 1, void(*)(NetHttp_Socket*, void **, CHAR*, INTEGER ), (self, self__typ, url, url__len))
+
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+
+import void **NetHttp_Socket__typ;
+
+import void *NetHttp__init (void);
+
+
+#endif
