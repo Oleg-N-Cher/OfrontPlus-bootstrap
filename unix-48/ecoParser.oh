@@ -1,0 +1,128 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef ecoParser__oh
+#define ecoParser__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct CHAR8_ARRAY *ecoParser_StrPtr;
+
+typedef
+  struct ecoParser_CtxNode *ecoParser_CtxPtr;
+
+typedef
+  struct ecoParser_Node *ecoParser_NodePtr;
+
+typedef
+  struct ecoParser_Parser {
+    ecoParser_StrPtr inpBuf;
+    INTEGER inpIdx, inpAvl;
+    ecoParser_CtxPtr ctxNow;
+    char _prvt0[8];
+    ecoParser_NodePtr nodFnd;
+  } ecoParser_Parser;
+
+import void ecoParser_Parser_Exec (ecoParser_Parser *prs, void **prs__typ);
+import void ecoParser_Parser_Init (ecoParser_Parser *prs, void **prs__typ, ecoParser_StrPtr buf, INTEGER bufLen, INTEGER ctxDeep);
+import void ecoParser_Parser_PopContext (ecoParser_Parser *prs, void **prs__typ);
+import void ecoParser_Parser_PushContext (ecoParser_Parser *prs, void **prs__typ, ecoParser_CtxPtr ctx);
+import void ecoParser_Parser_SetContextByPtr (ecoParser_Parser *prs, void **prs__typ, ecoParser_CtxPtr ctx);
+#define __ecoParser_Parser_Exec(prs, prs__typ) __SEND(prs__typ, ecoParser_Parser_Exec, 1, void(*)(ecoParser_Parser*, void **), (prs, prs__typ))
+#define __ecoParser_Parser_Init(prs, prs__typ, buf, bufLen, ctxDeep) __SEND(prs__typ, ecoParser_Parser_Init, 2, void(*)(ecoParser_Parser*, void **, ecoParser_StrPtr, INTEGER, INTEGER), (prs, prs__typ, buf, bufLen, ctxDeep))
+#define __ecoParser_Parser_PopContext(prs, prs__typ) __SEND(prs__typ, ecoParser_Parser_PopContext, 3, void(*)(ecoParser_Parser*, void **), (prs, prs__typ))
+#define __ecoParser_Parser_PushContext(prs, prs__typ, ctx) __SEND(prs__typ, ecoParser_Parser_PushContext, 4, void(*)(ecoParser_Parser*, void **, ecoParser_CtxPtr), (prs, prs__typ, ctx))
+#define __ecoParser_Parser_SetContextByPtr(prs, prs__typ, ctx) __SEND(prs__typ, ecoParser_Parser_SetContextByPtr, 5, void(*)(ecoParser_Parser*, void **, ecoParser_CtxPtr), (prs, prs__typ, ctx))
+
+typedef
+  BOOLEAN (*ecoParser_Comparer)(ecoParser_Parser*, void **);
+
+typedef
+  void (*ecoParser_Method)(ecoParser_Parser*, void **);
+
+typedef
+  struct ecoParser_Node {
+    ecoParser_NodePtr nextNode;
+    ecoParser_Comparer comparer;
+    INTEGER nameLen;
+    ecoParser_StrPtr name;
+    ecoParser_Method method;
+  } ecoParser_Node;
+
+typedef
+  struct ecoParser_CtxNode { /* ecoParser_Node */
+    ecoParser_NodePtr nextNode;
+    ecoParser_Comparer comparer;
+    INTEGER nameLen;
+    ecoParser_StrPtr name;
+    ecoParser_Method method;
+    ecoParser_NodePtr chldNode;
+    ecoParser_Method NotFound;
+  } ecoParser_CtxNode;
+
+import void ecoParser_CtxNode_AddContext (ecoParser_CtxNode *ctx, void **ctx__typ, ecoParser_Comparer cmp, CHAR *name, INTEGER name__len, ecoParser_Method notfound);
+#define __ecoParser_CtxNode_AddContext(ctx, ctx__typ, cmp, name, name__len, notfound) __SEND(ctx__typ, ecoParser_CtxNode_AddContext, 1, void(*)(ecoParser_CtxNode*, void **, ecoParser_Comparer, CHAR*, INTEGER , ecoParser_Method), (ctx, ctx__typ, cmp, name, name__len, notfound))
+
+typedef
+  ecoParser_Parser *ecoParser_ParserPtr;
+
+typedef
+  struct ecoParser_Tree {
+    char _prvt0[4];
+    ecoParser_CtxPtr this, addTo;
+  } ecoParser_Tree;
+
+import void ecoParser_Tree_AddContext (ecoParser_Tree *tree, void **tree__typ, ecoParser_Comparer cmp, CHAR *name, INTEGER name__len, ecoParser_Method notfound);
+import void ecoParser_Tree_AddMethod (ecoParser_Tree *tree, void **tree__typ, ecoParser_Comparer cmp, CHAR *name, INTEGER name__len, ecoParser_Method meth);
+import void ecoParser_Tree_AddPushContext (ecoParser_Tree *tree, void **tree__typ, ecoParser_Comparer cmp, CHAR *name, INTEGER name__len, ecoParser_Method notfound);
+import void ecoParser_Tree_AddSetContext (ecoParser_Tree *tree, void **tree__typ, ecoParser_Comparer cmp, CHAR *name, INTEGER name__len, ecoParser_CtxPtr setContext);
+import void ecoParser_Tree_Init (ecoParser_Tree *tree, void **tree__typ);
+import void ecoParser_Tree_To (ecoParser_Tree *tree, void **tree__typ, ecoParser_CtxPtr ctx);
+#define __ecoParser_Tree_AddContext(tree, tree__typ, cmp, name, name__len, notfound) __SEND(tree__typ, ecoParser_Tree_AddContext, 1, void(*)(ecoParser_Tree*, void **, ecoParser_Comparer, CHAR*, INTEGER , ecoParser_Method), (tree, tree__typ, cmp, name, name__len, notfound))
+#define __ecoParser_Tree_AddMethod(tree, tree__typ, cmp, name, name__len, meth) __SEND(tree__typ, ecoParser_Tree_AddMethod, 2, void(*)(ecoParser_Tree*, void **, ecoParser_Comparer, CHAR*, INTEGER , ecoParser_Method), (tree, tree__typ, cmp, name, name__len, meth))
+#define __ecoParser_Tree_AddPushContext(tree, tree__typ, cmp, name, name__len, notfound) __SEND(tree__typ, ecoParser_Tree_AddPushContext, 3, void(*)(ecoParser_Tree*, void **, ecoParser_Comparer, CHAR*, INTEGER , ecoParser_Method), (tree, tree__typ, cmp, name, name__len, notfound))
+#define __ecoParser_Tree_AddSetContext(tree, tree__typ, cmp, name, name__len, setContext) __SEND(tree__typ, ecoParser_Tree_AddSetContext, 4, void(*)(ecoParser_Tree*, void **, ecoParser_Comparer, CHAR*, INTEGER , ecoParser_CtxPtr), (tree, tree__typ, cmp, name, name__len, setContext))
+#define __ecoParser_Tree_Init(tree, tree__typ) __SEND(tree__typ, ecoParser_Tree_Init, 5, void(*)(ecoParser_Tree*, void **), (tree, tree__typ))
+#define __ecoParser_Tree_To(tree, tree__typ, ctx) __SEND(tree__typ, ecoParser_Tree_To, 6, void(*)(ecoParser_Tree*, void **, ecoParser_CtxPtr), (tree, tree__typ, ctx))
+
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+#ifndef ecoParser_CtxNode_PTR_ARRAY_DEF
+#define ecoParser_CtxNode_PTR_ARRAY_DEF
+typedef struct ecoParser_CtxNode_PTR_ARRAY {
+  INTEGER len[1];
+  ecoParser_CtxNode *data[1];
+} ecoParser_CtxNode_PTR_ARRAY;
+#endif 
+
+
+import void **ecoParser_Tree__typ;
+import void **ecoParser_Parser__typ;
+import void **ecoParser_Node__typ;
+import void **ecoParser_CtxNode__typ;
+
+import BOOLEAN ecoParser_Always (ecoParser_Parser *prs, void **prs__typ);
+import CHAR ecoParser_Cap (CHAR c);
+import BOOLEAN ecoParser_Contains (ecoParser_Parser *prs, void **prs__typ);
+import BOOLEAN ecoParser_EquAbs (ecoParser_Parser *prs, void **prs__typ);
+import BOOLEAN ecoParser_EquCap (ecoParser_Parser *prs, void **prs__typ);
+import BOOLEAN ecoParser_IsData (ecoParser_Parser *prs, void **prs__typ);
+import BOOLEAN ecoParser_IsNull (ecoParser_Parser *prs, void **prs__typ);
+import INTEGER ecoParser_Length (CHAR *str, INTEGER str__len);
+import BOOLEAN ecoParser_Never (ecoParser_Parser *prs, void **prs__typ);
+import ecoParser_CtxPtr ecoParser_NewContext (ecoParser_Comparer cmp, CHAR *name, INTEGER name__len, ecoParser_Method notfound);
+import ecoParser_ParserPtr ecoParser_NewParser (ecoParser_StrPtr buf, INTEGER bufLen, INTEGER ctxDeep);
+import void ecoParser_None (ecoParser_Parser *prs, void **prs__typ);
+import INTEGER ecoParser_Pos (CHAR *str, INTEGER str__len, CHAR *subStr, INTEGER subStr__len, INTEGER pos);
+import void ecoParser_Push (ecoParser_Parser *prs, void **prs__typ);
+import void *ecoParser__init (void);
+
+
+#endif

@@ -1,0 +1,22 @@
+/* Ofront+ 1.0 -sxpC -48 */
+
+#ifndef CmdArgs__oh
+#define CmdArgs__oh
+
+#include "SYSTEM.oh"
+
+
+import INTEGER CmdArgs_Count;
+import BOOLEAN CmdArgs_Truncated;
+
+
+import INTEGER CmdArgs_EnvCount (void);
+import void CmdArgs_Get (INTEGER n, CHAR *val, INTEGER val__len);
+import void CmdArgs_GetEnv (CHAR *var, INTEGER var__len, CHAR *val, INTEGER val__len);
+import void CmdArgs_GetEnvN (INTEGER n, CHAR *val, INTEGER val__len);
+import void CmdArgs_GetInt (INTEGER n, INTEGER *val);
+import INTEGER CmdArgs_Pos (CHAR *s, INTEGER s__len);
+import void *CmdArgs__init (void);
+
+
+#endif
