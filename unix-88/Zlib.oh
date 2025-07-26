@@ -1,0 +1,17 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef Zlib__oh
+#define Zlib__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import INTEGER Zlib_Adler32 (INTEGER adler, CHAR *buf, INTEGER buf__len, INTEGER offset, INTEGER len);
+import INTEGER Zlib_CRC32 (INTEGER crc, CHAR *buf, INTEGER buf__len, INTEGER offset, INTEGER len);
+import void Zlib_InitCRCTable (void);
+import void *Zlib__init (void);
+
+
+#endif
