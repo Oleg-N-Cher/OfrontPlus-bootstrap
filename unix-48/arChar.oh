@@ -1,0 +1,18 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef arChar__oh
+#define arChar__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import BOOLEAN arChar_IsAlphaNumeric (CHAR ch);
+import BOOLEAN arChar_IsDigit (CHAR ch);
+import BOOLEAN arChar_IsLetter (CHAR ch);
+import BOOLEAN arChar_IsSpace (CHAR ch);
+import void *arChar__init (void);
+
+
+#endif
