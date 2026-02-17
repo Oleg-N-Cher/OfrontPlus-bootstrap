@@ -1,26 +1,25 @@
-linux_arm_task:
-  arm_container:
-    cpu: 2
-    memory: 4G
-    image: gcc:latest
+macos_task:
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-monterey-base:latest
   environment:
     CIRRUS_KEY: ENCRYPTED[0d928cf2f2b4e912a319e684389a48e71ef890d05fea5287ab4b26adc25093395010d777f7ab56cefeb0458b9667cb5a]
   timeout_in: 10m
   script: |
     chmod +x cc-bootstrap
     cd unix-88
+    export MACOSX_DEPLOYMENT_TARGET=10.6
     ../cc-bootstrap
     cd ..
-    mkdir -p Target/Linux_aarch64
-    mv graphviz Target/Linux_aarch64
-    mv ocat Target/Linux_aarch64
-    mv odc2txt Target/Linux_aarch64
-    mv oef Target/Linux_aarch64
-    mv ofront+ Target/Linux_aarch64
-    mv omake Target/Linux_aarch64
-    mv showdef Target/Linux_aarch64
-    mv Target/macOS/Bin/.cirrus.yml .
+    mkdir -p Target/macOS
+    mv graphviz Target/macOS
+    mv ocat Target/macOS
+    mv odc2txt Target/macOS
+    mv oef Target/macOS
+    mv ofront+ Target/macOS
+    mv omake Target/macOS
+    mv showdef Target/macOS
+    mv Target/FreeBSD_amd64/Bin/.cirrus.yml .
     git add .cirrus.yml
     git add Target
-    git -c user.name='zorko' -c user.email='zorko@vedasoft' commit -m "#${CIRRUS_OS}_arm"
+    git -c user.name='zorko' -c user.email='zorko@vedasoft' commit -m "#macos"
     git push -q https://Oleg-N-Cher:$CIRRUS_KEY@github.com/Oleg-N-Cher/OfrontPlus-bootstrap.git HEAD:master &>/dev/null
