@@ -1,0 +1,42 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef ecoListen__oh
+#define ecoListen__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct ecoListen_ElementDesc *ecoListen_Element;
+
+typedef
+  BOOLEAN (*ecoListen_CompareProc)(ecoListen_Element, ecoListen_Element);
+
+typedef
+  struct ecoListen_ElementDesc {
+    char _prvt0[1];
+  } ecoListen_ElementDesc;
+
+typedef
+  struct ecoListen_ListDesc {
+    INTEGER _prvt0;
+    char _prvt1[4];
+  } ecoListen_ListDesc;
+
+typedef
+  ecoListen_ListDesc *ecoListen_Liste;
+
+
+
+import void **ecoListen_ElementDesc__typ;
+import void **ecoListen_ListDesc__typ;
+
+import ecoListen_Liste ecoListen_Append (ecoListen_Liste list, ecoListen_Element e);
+import ecoListen_Liste ecoListen_Concat (ecoListen_Element head, ecoListen_Liste tail);
+import ecoListen_Element ecoListen_Find (ecoListen_Element e, ecoListen_Liste l, ecoListen_CompareProc equal);
+import ecoListen_Element ecoListen_Head (ecoListen_Liste l);
+import BOOLEAN ecoListen_IsElement (ecoListen_Element e, ecoListen_Liste l, ecoListen_CompareProc equal);
+import ecoListen_Liste ecoListen_Tail (ecoListen_Liste l);
+import void *ecoListen__init (void);
+
+
+#endif

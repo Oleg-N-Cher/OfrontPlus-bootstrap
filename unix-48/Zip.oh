@@ -1,0 +1,72 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef Zip__oh
+#define Zip__oh
+
+#include "SYSTEM.oh"
+#include "Files.oh"
+
+typedef
+  struct Zip_ArchiveDesc *Zip_Archive;
+
+typedef
+  struct Zip_ArchiveDesc {
+    SHORTINT nofEntries;
+    struct CHAR8_ARRAY *comment;
+    char _prvt0[16];
+  } Zip_ArchiveDesc;
+
+typedef
+  struct Zip_EntryDesc *Zip_Entry;
+
+typedef
+  struct Zip_EntryDesc {
+    CHAR name[256];
+    char _prvt0[4];
+    INTEGER time, date;
+    char _prvt1[4];
+    INTEGER compSize, uncompSize;
+    char _prvt2[12];
+    struct CHAR8_ARRAY *comment;
+    char _prvt3[20];
+  } Zip_EntryDesc;
+
+typedef
+  struct Zip_ReaderDesc *Zip_Reader;
+
+typedef
+  struct Zip_ReaderDesc {
+    INTEGER res;
+    char _prvt0[8];
+  } Zip_ReaderDesc;
+
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+
+import void **Zip_EntryDesc__typ;
+import void **Zip_ArchiveDesc__typ;
+import void **Zip_ReaderDesc__typ;
+
+import void Zip_AddEntry (Zip_Archive arc, CHAR *name, INTEGER name__len, Files_Rider *src, void **src__typ, INTEGER len, BYTE level, BYTE strategy, INTEGER *res);
+import void Zip_Close (Zip_Reader r);
+import Zip_Archive Zip_CreateArchive (CHAR *name, INTEGER name__len, INTEGER *res);
+import void Zip_DeleteEntry (Zip_Archive arc, Zip_Entry *ent, INTEGER *res);
+import void Zip_ExtractEntry (Zip_Archive arc, Zip_Entry ent, Files_Rider *dst, void **dst__typ, INTEGER *res);
+import Zip_Entry Zip_FirstEntry (Zip_Archive arc);
+import Zip_Entry Zip_GetEntry (Zip_Archive arc, CHAR *name, INTEGER name__len, INTEGER *res);
+import Zip_Entry Zip_NextEntry (Zip_Entry ent);
+import Zip_Archive Zip_OpenArchive (CHAR *name, INTEGER name__len, INTEGER *res);
+import Zip_Reader Zip_OpenReader (Zip_Archive arc, Zip_Entry ent);
+import void Zip_Read (Zip_Reader r, CHAR *ch);
+import void Zip_ReadBytes (Zip_Reader r, CHAR *buf, INTEGER buf__len, INTEGER offset, INTEGER len, INTEGER *read);
+import void *Zip__init (void);
+
+
+#endif

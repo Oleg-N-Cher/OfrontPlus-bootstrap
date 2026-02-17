@@ -1,0 +1,32 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef ZlibBuffers__oh
+#define ZlibBuffers__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct ZlibBuffers_Buffer {
+    INTEGER avail, size, totalOut, totalIn;
+    char _prvt0[8];
+  } ZlibBuffers_Buffer;
+
+
+
+import void **ZlibBuffers_Buffer__typ;
+
+import void ZlibBuffers_Drain (ZlibBuffers_Buffer *buf, void **buf__typ, CHAR *dst, INTEGER dst__len, INTEGER offset, INTEGER size);
+import void ZlibBuffers_Fill (ZlibBuffers_Buffer *buf, void **buf__typ, CHAR *src, INTEGER src__len, INTEGER offset, INTEGER size);
+import void ZlibBuffers_Init (ZlibBuffers_Buffer *buf, void **buf__typ, CHAR *mem, INTEGER mem__len, INTEGER offset, INTEGER size, INTEGER avail);
+import void ZlibBuffers_Read (ZlibBuffers_Buffer *buf, void **buf__typ, CHAR *ch);
+import void ZlibBuffers_ReadBytes (ZlibBuffers_Buffer *buf, void **buf__typ, CHAR *dst, INTEGER dst__len, INTEGER offset, INTEGER len);
+import void ZlibBuffers_Reread (ZlibBuffers_Buffer *buf, void **buf__typ, INTEGER offset);
+import void ZlibBuffers_Reset (ZlibBuffers_Buffer *buf, void **buf__typ);
+import void ZlibBuffers_Rewind (ZlibBuffers_Buffer *buf, void **buf__typ, INTEGER avail);
+import void ZlibBuffers_Rewrite (ZlibBuffers_Buffer *buf, void **buf__typ);
+import void ZlibBuffers_Write (ZlibBuffers_Buffer *buf, void **buf__typ, CHAR ch);
+import void ZlibBuffers_WriteBytes (ZlibBuffers_Buffer *buf, void **buf__typ, CHAR *src, INTEGER src__len, INTEGER offset, INTEGER len);
+import void *ZlibBuffers__init (void);
+
+
+#endif

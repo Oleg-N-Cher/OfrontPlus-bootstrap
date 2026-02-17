@@ -1,0 +1,20 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef arSize__oh
+#define arSize__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import INTEGER arSize_Max (INTEGER a, INTEGER b);
+import REAL arSize_MaxLReal (REAL a, REAL b);
+import SHORTREAL arSize_MaxReal (SHORTREAL a, SHORTREAL b);
+import INTEGER arSize_Min (INTEGER a, INTEGER b);
+import REAL arSize_MinLReal (REAL a, REAL b);
+import SHORTREAL arSize_MinReal (SHORTREAL a, SHORTREAL b);
+import void *arSize__init (void);
+
+
+#endif

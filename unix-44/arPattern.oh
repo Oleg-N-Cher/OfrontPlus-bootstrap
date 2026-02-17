@@ -1,0 +1,30 @@
+/* Ofront+ 1.0 -s2 -44 */
+
+#ifndef arPattern__oh
+#define arPattern__oh
+
+#include "SYSTEM.oh"
+#include "arStringList.oh"
+#include "arStrings.oh"
+#include "arStringAssoc.oh"
+
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+
+
+import arStrings_StringPtr arPattern_ExpandEnvironmentVariables (CHAR *string, INTEGER string__len);
+import BOOLEAN arPattern_Match (CHAR *pattern, INTEGER pattern__len, CHAR *input, INTEGER input__len, arStringList_Array *result);
+import arStringList_Array arPattern_ParseArgs (CHAR *string, INTEGER string__len);
+import arStringList_Array arPattern_Split (CHAR *string, INTEGER string__len, CHAR delimiter);
+import arStrings_StringPtr arPattern_Substitute (CHAR *string, INTEGER string__len, arStringAssoc_Assoc environment);
+import void *arPattern__init (void);
+
+
+#endif

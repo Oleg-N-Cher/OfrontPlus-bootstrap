@@ -1,0 +1,40 @@
+/* Ofront+ 1.0 -swC -44 */
+
+#ifndef bbStrings__oh
+#define bbStrings__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void bbStrings_Extract (LONGCHAR *s, INTEGER s__len, INTEGER pos, INTEGER len, LONGCHAR *res, INTEGER res__len);
+import void bbStrings_Find (LONGCHAR *s, INTEGER s__len, LONGCHAR *pat, INTEGER pat__len, INTEGER start, INTEGER *pos);
+import void bbStrings_IntToString (LONGINT x, LONGCHAR *s, INTEGER s__len);
+import void bbStrings_IntToStringForm (LONGINT x, INTEGER form, INTEGER minWidth, LONGCHAR fillCh, BOOLEAN showBase, LONGCHAR *s, INTEGER s__len);
+import BOOLEAN bbStrings_IsAlpha (LONGCHAR ch);
+import BOOLEAN bbStrings_IsAlphaNumeric (LONGCHAR ch);
+import BOOLEAN bbStrings_IsIdent (LONGCHAR ch);
+import BOOLEAN bbStrings_IsIdentStart (LONGCHAR ch);
+import BOOLEAN bbStrings_IsLower (LONGCHAR ch);
+import BOOLEAN bbStrings_IsNumeric (LONGCHAR ch);
+import BOOLEAN bbStrings_IsUpper (LONGCHAR ch);
+import LONGCHAR bbStrings_Lower (LONGCHAR ch);
+import void bbStrings_RealToString (REAL x, LONGCHAR *s, INTEGER s__len);
+import void bbStrings_RealToStringForm (REAL x, INTEGER precision, INTEGER minW, INTEGER expW, LONGCHAR fillCh, LONGCHAR *s, INTEGER s__len);
+import void bbStrings_Replace (LONGCHAR *s, INTEGER s__len, INTEGER pos, INTEGER len, LONGCHAR *rep, INTEGER rep__len);
+import void bbStrings_SetToString (SET x, LONGCHAR *str, INTEGER str__len);
+import void bbStrings_StringToInt (LONGCHAR *s, INTEGER s__len, INTEGER *x, INTEGER *res);
+import void bbStrings_StringToLInt (LONGCHAR *s, INTEGER s__len, LONGINT *x, INTEGER *res);
+import void bbStrings_StringToReal (LONGCHAR *s, INTEGER s__len, REAL *x, INTEGER *res);
+import void bbStrings_StringToSet (LONGCHAR *s, INTEGER s__len, SET *x, INTEGER *res);
+import void bbStrings_StringToUtf8 (LONGCHAR *in, INTEGER in__len, CHAR *out, INTEGER out__len, INTEGER *res);
+import void bbStrings_ToLower (LONGCHAR *in, INTEGER in__len, LONGCHAR *out, INTEGER out__len);
+import void bbStrings_ToUpper (LONGCHAR *in, INTEGER in__len, LONGCHAR *out, INTEGER out__len);
+import LONGCHAR bbStrings_Upper (LONGCHAR ch);
+import void bbStrings_Utf8ToString (CHAR *in, INTEGER in__len, LONGCHAR *out, INTEGER out__len, INTEGER *res);
+import BOOLEAN bbStrings_Valid (LONGCHAR *s, INTEGER s__len);
+import void *bbStrings__init (void);
+
+
+#endif

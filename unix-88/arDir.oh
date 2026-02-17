@@ -1,0 +1,28 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef arDir__oh
+#define arDir__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct arDir_FileFinder {
+    LONGINT _prvt0;
+    char _prvt1[8];
+  } arDir_FileFinder;
+
+import void arDir_FileFinder_Close (arDir_FileFinder *f, void **f__typ);
+import BOOLEAN arDir_FileFinder_Next (arDir_FileFinder *f, void **f__typ, CHAR *name, INTEGER name__len);
+import BOOLEAN arDir_FileFinder_Open (arDir_FileFinder *f, void **f__typ, CHAR *path, INTEGER path__len);
+#define __arDir_FileFinder_Close(f, f__typ) __SEND(f__typ, arDir_FileFinder_Close, 1, void(*)(arDir_FileFinder*, void **), (f, f__typ))
+#define __arDir_FileFinder_Next(f, f__typ, name, name__len) __SEND(f__typ, arDir_FileFinder_Next, 2, BOOLEAN(*)(arDir_FileFinder*, void **, CHAR*, INTEGER ), (f, f__typ, name, name__len))
+#define __arDir_FileFinder_Open(f, f__typ, path, path__len) __SEND(f__typ, arDir_FileFinder_Open, 3, BOOLEAN(*)(arDir_FileFinder*, void **, CHAR*, INTEGER ), (f, f__typ, path, path__len))
+
+
+
+import void **arDir_FileFinder__typ;
+
+
+#include <dirent.h>
+
+#endif

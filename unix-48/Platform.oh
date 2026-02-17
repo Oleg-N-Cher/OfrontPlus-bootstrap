@@ -1,0 +1,72 @@
+/* Ofront+ 1.0 -sxtapC -48 */
+
+#ifndef Platform__oh
+#define Platform__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct Platform_FileIdentity {
+    LONGINT _prvt0;
+    char _prvt1[8];
+  } Platform_FileIdentity;
+
+
+import BOOLEAN Platform_LittleEndian;
+import INTEGER Platform_PID;
+import CHAR Platform_CWD[4096];
+import INTEGER Platform_SeekSet, Platform_SeekCur, Platform_SeekEnd;
+
+
+import BOOLEAN Platform_Absent (INTEGER e);
+import INTEGER Platform_ChDir (CHAR *n, INTEGER n__len);
+import INTEGER Platform_CloseFile (INTEGER handle);
+import BOOLEAN Platform_ConnectionFailed (INTEGER e);
+import void Platform_Delay (INTEGER ms);
+import INTEGER Platform_DeleteFile (CHAR *n, INTEGER n__len);
+import BOOLEAN Platform_DifferentFilesystems (INTEGER e);
+import BOOLEAN Platform_DirExists (CHAR *path, INTEGER path__len);
+import INTEGER Platform_Error (void);
+import void Platform_ExitOS (INTEGER code);
+import BOOLEAN Platform_FileExists (CHAR *pathname, INTEGER pathname__len);
+import INTEGER Platform_FileSize (INTEGER h, LONGINT *len);
+import void Platform_GetAppDir (CHAR *dir, INTEGER dir__len);
+import void Platform_GetAppDirW (LONGCHAR *dir, INTEGER dir__len);
+import void Platform_GetClock (INTEGER *t, INTEGER *d);
+import void Platform_GetLang (CHAR *lang, INTEGER lang__len);
+import void Platform_GetTempPath (CHAR *path, INTEGER path__len);
+import INTEGER Platform_Identify (INTEGER h, Platform_FileIdentity *identity);
+import INTEGER Platform_IdentifyByName (CHAR *n, INTEGER n__len, Platform_FileIdentity *identity);
+import BOOLEAN Platform_Inaccessible (INTEGER e);
+import BOOLEAN Platform_IsConsole (INTEGER h);
+import void Platform_MTimeAsClock (Platform_FileIdentity i, INTEGER *t, INTEGER *d);
+import INTEGER Platform_MaxNameLength (void);
+import INTEGER Platform_MaxPathLength (void);
+import INTEGER Platform_NewDir (CHAR *pathname, INTEGER pathname__len, INTEGER *h);
+import INTEGER Platform_NewFile (CHAR *pathname, INTEGER pathname__len, INTEGER *h);
+import BOOLEAN Platform_NoSuchDirectory (INTEGER e);
+import INTEGER Platform_OSAllocate (INTEGER size);
+import void Platform_OSFree (INTEGER address);
+import INTEGER Platform_OldRO (CHAR *pathname, INTEGER pathname__len, INTEGER *h);
+import INTEGER Platform_OldRW (CHAR *pathname, INTEGER pathname__len, INTEGER *h);
+import INTEGER Platform_Read (INTEGER h, INTEGER p, INTEGER l, INTEGER *n);
+import INTEGER Platform_ReadBuf (INTEGER h, BYTE *b, INTEGER b__len, INTEGER *n);
+import INTEGER Platform_ReadBufW (INTEGER h, LONGCHAR *b, INTEGER b__len, INTEGER *n);
+import INTEGER Platform_RenameFile (CHAR *oldname, INTEGER oldname__len, CHAR *newname, INTEGER newname__len);
+import BOOLEAN Platform_SameFile (Platform_FileIdentity i1, Platform_FileIdentity i2);
+import BOOLEAN Platform_SameFileTime (Platform_FileIdentity i1, Platform_FileIdentity i2);
+import INTEGER Platform_Seek (INTEGER h, LONGINT offset, INTEGER whence);
+import void Platform_SetMTime (Platform_FileIdentity *target, Platform_FileIdentity source);
+import INTEGER Platform_Sync (INTEGER h);
+import INTEGER Platform_System (CHAR *cmd, INTEGER cmd__len);
+import INTEGER Platform_Time (void);
+import BOOLEAN Platform_TimedOut (INTEGER e);
+import BOOLEAN Platform_TooManyFiles (INTEGER e);
+import INTEGER Platform_TruncateFile (INTEGER h, LONGINT limit);
+import INTEGER Platform_Write (INTEGER h, INTEGER p, INTEGER l);
+import INTEGER Platform_WriteW (LONGCHAR *s, INTEGER s__len, INTEGER len);
+import void *Platform__init (void);
+
+#define Platform_InvalidHandleValue()  (-1)
+
+#endif

@@ -1,0 +1,20 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef Sound__oh
+#define Sound__oh
+
+#include "SYSTEM.oh"
+#include "SDL2mixer.oh"
+
+
+import BOOLEAN Sound_initOk;
+
+
+import void Sound_Free (SDL2mixer_PMix_Chunk *sound);
+import void Sound_Load (SDL2mixer_PMix_Chunk *sound, CHAR *fileName, INTEGER fileName__len);
+import void Sound_Play (SDL2mixer_PMix_Chunk sound);
+import void Sound_Quit (void);
+import void *Sound__init (void);
+
+
+#endif

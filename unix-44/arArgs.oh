@@ -1,0 +1,22 @@
+/* Ofront+ 1.0 -s2 -44 */
+
+#ifndef arArgs__oh
+#define arArgs__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  CHAR (*arArgs_ArgPtr)[1024];
+
+typedef
+  arArgs_ArgPtr (*arArgs_ArgVec)[1024];
+
+
+import INTEGER arArgs_argc;
+import arArgs_ArgVec arArgs_argv;
+
+
+import void *arArgs__init (void);
+
+
+#endif

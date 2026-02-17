@@ -1,0 +1,48 @@
+/* Ofront+ 1.0 -swC -44 */
+
+#ifndef bbMath__oh
+#define bbMath__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import REAL bbMath_ArcCos (REAL x);
+import REAL bbMath_ArcCosh (REAL x);
+import REAL bbMath_ArcSin (REAL x);
+import REAL bbMath_ArcSinh (REAL x);
+import REAL bbMath_ArcTan (REAL x);
+import REAL bbMath_ArcTan2 (REAL y, REAL x);
+import REAL bbMath_ArcTanh (REAL x);
+import REAL bbMath_Ceiling (REAL x);
+import REAL bbMath_CopySign (REAL x, REAL y);
+import REAL bbMath_Cos (REAL x);
+import REAL bbMath_Cosh (REAL x);
+import REAL bbMath_Eps (void);
+import REAL bbMath_Exp (REAL x);
+import INTEGER bbMath_Exponent (REAL x);
+import REAL bbMath_Floor (REAL x);
+import REAL bbMath_Frac (REAL x);
+import REAL bbMath_IntPower (REAL x, INTEGER n);
+import REAL bbMath_Ln (REAL x);
+import REAL bbMath_Log (REAL x);
+import REAL bbMath_Mantissa (REAL r);
+import REAL bbMath_Mod1 (REAL x);
+import REAL bbMath_Pi (void);
+import REAL bbMath_Power (REAL x, REAL y);
+import REAL bbMath_Real (REAL m, INTEGER e);
+import REAL bbMath_Round (REAL x);
+import REAL bbMath_Sign (REAL x);
+import BOOLEAN bbMath_SignBit (REAL x);
+import REAL bbMath_Sin (REAL x);
+import void bbMath_SinCos (REAL x, REAL *sin, REAL *cos);
+import REAL bbMath_Sinh (REAL x);
+import REAL bbMath_Sqrt (REAL x);
+import REAL bbMath_Tan (REAL x);
+import REAL bbMath_Tanh (REAL x);
+import REAL bbMath_Trunc (REAL x);
+import void *bbMath__init (void);
+
+
+#endif

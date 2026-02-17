@@ -1,0 +1,31 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef Oberon__oh
+#define Oberon__oh
+
+#include "SYSTEM.oh"
+#include "Texts.oh"
+
+typedef
+  struct Oberon_ParRec *Oberon_ParList;
+
+typedef
+  struct Oberon_ParRec {
+    Texts_Text text;
+    INTEGER pos;
+  } Oberon_ParRec;
+
+
+import Texts_Text Oberon_Log;
+import Oberon_ParList Oberon_Par;
+import CHAR Oberon_OptionChar;
+
+import void **Oberon_ParRec__typ;
+
+import void Oberon_GetClock (INTEGER *t, INTEGER *d);
+import void Oberon_GetSelection (Texts_Text *text, INTEGER *beg, INTEGER *end, INTEGER *time);
+import INTEGER Oberon_Time (void);
+import void *Oberon__init (void);
+
+
+#endif

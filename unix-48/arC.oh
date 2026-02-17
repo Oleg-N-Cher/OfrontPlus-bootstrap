@@ -1,0 +1,16 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef arC__oh
+#define arC__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  CHAR *arC_string;
+
+
+
+
+
+
+#endif

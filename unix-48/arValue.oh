@@ -1,0 +1,305 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef arValue__oh
+#define arValue__oh
+
+#include "SYSTEM.oh"
+#include "arText.oh"
+
+typedef
+  struct arValue_Array__rec *arValue_Array;
+
+typedef
+  struct arValue_ObjectDesc {
+    char _prvt0[1];
+  } arValue_ObjectDesc;
+
+typedef
+  arValue_ObjectDesc *arValue_Object;
+
+import arValue_Object arValue_Object_Copy (arValue_Object self);
+import arValue_Object arValue_Object_DeepCopy (arValue_Object self);
+import BOOLEAN arValue_Object_Equals (arValue_Object self, arValue_Object other);
+import void arValue_Object_Format (arValue_Object self, arText_Writer *w, void **w__typ);
+typedef
+  struct arValue_String__rec *arValue_String;
+
+import arValue_String arValue_Object_ToJSON (arValue_Object self);
+import arValue_String arValue_Object_ToString (arValue_Object self);
+#define __arValue_Object_Copy(self) __SEND(__TYPEOF(self), arValue_Object_Copy, 0, arValue_Object(*)(arValue_Object), (self))
+#define __arValue_Object_DeepCopy(self) __SEND(__TYPEOF(self), arValue_Object_DeepCopy, 1, arValue_Object(*)(arValue_Object), (self))
+#define __arValue_Object_Equals(self, other) __SEND(__TYPEOF(self), arValue_Object_Equals, 2, BOOLEAN(*)(arValue_Object, arValue_Object), (self, other))
+#define __arValue_Object_Format(self, w, w__typ) __SEND(__TYPEOF(self), arValue_Object_Format, 3, void(*)(arValue_Object, arText_Writer*, void **), (self, w, w__typ))
+#define __arValue_Object_ToJSON(self) __SEND(__TYPEOF(self), arValue_Object_ToJSON, 4, arValue_String(*)(arValue_Object), (self))
+#define __arValue_Object_ToString(self) __SEND(__TYPEOF(self), arValue_Object_ToString, 5, arValue_String(*)(arValue_Object), (self))
+
+typedef
+  struct arValue_ObjectDesc_PTR_ARRAY *arValue_ObjectArray;
+
+typedef
+  struct arValue_Array__rec { /* arValue_ObjectDesc */
+    arValue_ObjectArray value;
+    INTEGER length;
+  } arValue_Array__rec;
+
+import arValue_Object arValue_Array_Copy (arValue_Array self);
+import arValue_Object arValue_Array_DeepCopy (arValue_Array self);
+import BOOLEAN arValue_Array_Equals (arValue_Array self, arValue_Object value);
+import void arValue_Array_Format (arValue_Array self, arText_Writer *w, void **w__typ);
+import arValue_Object arValue_Array_Get (arValue_Array self, INTEGER index);
+import arValue_Object arValue_Array_Set (arValue_Array self, INTEGER index, arValue_Object value);
+#define __arValue_Array_Get(self, index) __SEND(__TYPEOF(self), arValue_Array_Get, 7, arValue_Object(*)(arValue_Array, INTEGER), (self, index))
+#define __arValue_Array_Set(self, index, value) __SEND(__TYPEOF(self), arValue_Array_Set, 8, arValue_Object(*)(arValue_Array, INTEGER, arValue_Object), (self, index, value))
+
+typedef
+  struct arValue_Boolean__rec *arValue_Boolean;
+
+typedef
+  struct arValue_Boolean__rec { /* arValue_ObjectDesc */
+    BOOLEAN value;
+  } arValue_Boolean__rec;
+
+import arValue_Object arValue_Boolean_Copy (arValue_Boolean self);
+import arValue_Boolean arValue_Boolean_CopyT (arValue_Boolean self);
+import BOOLEAN arValue_Boolean_Equals (arValue_Boolean self, arValue_Object other);
+import void arValue_Boolean_Format (arValue_Boolean self, arText_Writer *w, void **w__typ);
+#define __arValue_Boolean_CopyT(self) __SEND(__TYPEOF(self), arValue_Boolean_CopyT, 6, arValue_Boolean(*)(arValue_Boolean), (self))
+
+typedef
+  struct INT32_ARRAY *arValue_IntArray;
+
+typedef
+  struct arValue_Integer__rec *arValue_Integer;
+
+typedef
+  struct arValue_Integer__rec { /* arValue_ObjectDesc */
+    INTEGER value;
+  } arValue_Integer__rec;
+
+import arValue_Object arValue_Integer_Copy (arValue_Integer self);
+import arValue_Integer arValue_Integer_CopyT (arValue_Integer self);
+import BOOLEAN arValue_Integer_Equals (arValue_Integer self, arValue_Object other);
+import void arValue_Integer_Format (arValue_Integer self, arText_Writer *w, void **w__typ);
+#define __arValue_Integer_CopyT(self) __SEND(__TYPEOF(self), arValue_Integer_CopyT, 6, arValue_Integer(*)(arValue_Integer), (self))
+
+typedef
+  struct arValue_List__rec *arValue_List;
+
+typedef
+  struct arValue_ListElement__rec *arValue_ListElement;
+
+typedef
+  struct arValue_ListElement__rec {
+    arValue_Object value;
+    arValue_ListElement next;
+  } arValue_ListElement__rec;
+
+typedef
+  struct arValue_List__rec { /* arValue_ObjectDesc */
+    arValue_ListElement first, last;
+    INTEGER length;
+  } arValue_List__rec;
+
+import void arValue_List_Append (arValue_List self, arValue_Object o);
+import arValue_List arValue_List_Concat (arValue_List self, arValue_List value);
+import arValue_Object arValue_List_Copy (arValue_List self);
+import arValue_List arValue_List_CopyT (arValue_List self, BOOLEAN deep);
+import arValue_Object arValue_List_DeepCopy (arValue_List self);
+import BOOLEAN arValue_List_Equals (arValue_List self, arValue_Object other);
+import void arValue_List_Extend (arValue_List self, arValue_List value);
+import void arValue_List_Format (arValue_List self, arText_Writer *w, void **w__typ);
+import arValue_Object arValue_List_Get (arValue_List self, INTEGER index);
+import INTEGER arValue_List_IndexOf (arValue_List l, arValue_Object value);
+import arValue_String arValue_List_Join (arValue_List self, CHAR *separator, INTEGER separator__len);
+typedef
+  arValue_Object (*arValue_MapFunction)(arValue_Object);
+
+import arValue_List arValue_List_Map (arValue_List self, arValue_MapFunction func);
+import void arValue_List_Prepend (arValue_List self, arValue_Object o);
+import void arValue_List_Set (arValue_List self, INTEGER index, arValue_Object value);
+import arValue_IntArray arValue_List_ToIntArray (arValue_List self);
+import arValue_ObjectArray arValue_List_ToObjectArray (arValue_List self);
+typedef
+  struct CHAR8_ARRAY_PTR_ARRAY *arValue_StringArray;
+
+import arValue_StringArray arValue_List_ToStringArray (arValue_List self);
+#define __arValue_List_Append(self, o) __SEND(__TYPEOF(self), arValue_List_Append, 6, void(*)(arValue_List, arValue_Object), (self, o))
+#define __arValue_List_Concat(self, value) __SEND(__TYPEOF(self), arValue_List_Concat, 7, arValue_List(*)(arValue_List, arValue_List), (self, value))
+#define __arValue_List_CopyT(self, deep) __SEND(__TYPEOF(self), arValue_List_CopyT, 8, arValue_List(*)(arValue_List, BOOLEAN), (self, deep))
+#define __arValue_List_Extend(self, value) __SEND(__TYPEOF(self), arValue_List_Extend, 9, void(*)(arValue_List, arValue_List), (self, value))
+#define __arValue_List_Get(self, index) __SEND(__TYPEOF(self), arValue_List_Get, 10, arValue_Object(*)(arValue_List, INTEGER), (self, index))
+#define __arValue_List_IndexOf(l, value) __SEND(__TYPEOF(l), arValue_List_IndexOf, 11, INTEGER(*)(arValue_List, arValue_Object), (l, value))
+#define __arValue_List_Join(self, separator, separator__len) __SEND(__TYPEOF(self), arValue_List_Join, 12, arValue_String(*)(arValue_List, CHAR*, INTEGER ), (self, separator, separator__len))
+#define __arValue_List_Map(self, func) __SEND(__TYPEOF(self), arValue_List_Map, 13, arValue_List(*)(arValue_List, arValue_MapFunction), (self, func))
+#define __arValue_List_Prepend(self, o) __SEND(__TYPEOF(self), arValue_List_Prepend, 14, void(*)(arValue_List, arValue_Object), (self, o))
+#define __arValue_List_Set(self, index, value) __SEND(__TYPEOF(self), arValue_List_Set, 15, void(*)(arValue_List, INTEGER, arValue_Object), (self, index, value))
+#define __arValue_List_ToIntArray(self) __SEND(__TYPEOF(self), arValue_List_ToIntArray, 17, arValue_IntArray(*)(arValue_List), (self))
+#define __arValue_List_ToObjectArray(self) __SEND(__TYPEOF(self), arValue_List_ToObjectArray, 18, arValue_ObjectArray(*)(arValue_List), (self))
+#define __arValue_List_ToStringArray(self) __SEND(__TYPEOF(self), arValue_List_ToStringArray, 19, arValue_StringArray(*)(arValue_List), (self))
+
+typedef
+  struct arValue_Real__rec *arValue_Real;
+
+typedef
+  struct arValue_Real__rec { /* arValue_ObjectDesc */
+    REAL value;
+  } arValue_Real__rec;
+
+import arValue_Object arValue_Real_Copy (arValue_Real self);
+import arValue_Real arValue_Real_CopyT (arValue_Real self);
+import BOOLEAN arValue_Real_Equals (arValue_Real self, arValue_Object other);
+import void arValue_Real_Format (arValue_Real self, arText_Writer *w, void **w__typ);
+#define __arValue_Real_CopyT(self) __SEND(__TYPEOF(self), arValue_Real_CopyT, 6, arValue_Real(*)(arValue_Real), (self))
+
+typedef
+  struct arValue_Record__rec *arValue_Record;
+
+typedef
+  struct arValue_RecordElement__rec *arValue_RecordElement;
+
+typedef
+  struct arValue_RecordElement__rec {
+    arValue_String key;
+    arValue_Object value;
+    arValue_RecordElement next;
+  } arValue_RecordElement__rec;
+
+typedef
+  struct arValue_Record__rec { /* arValue_ObjectDesc */
+    arValue_RecordElement scope;
+    INTEGER length;
+    char _prvt0[4];
+  } arValue_Record__rec;
+
+import arValue_Object arValue_Record_Copy (arValue_Record self);
+import arValue_Record arValue_Record_CopyT (arValue_Record self, BOOLEAN deep);
+import arValue_Object arValue_Record_DeepCopy (arValue_Record self);
+import BOOLEAN arValue_Record_Equals (arValue_Record self, arValue_Object value);
+import void arValue_Record_Format (arValue_Record self, arText_Writer *w, void **w__typ);
+import arValue_Object arValue_Record_Get (arValue_Record self, CHAR *key, INTEGER key__len);
+import arValue_Record arValue_Record_Map (arValue_Record self, arValue_MapFunction func);
+import void arValue_Record_Set (arValue_Record self, CHAR *key, INTEGER key__len, arValue_Object value);
+#define __arValue_Record_CopyT(self, deep) __SEND(__TYPEOF(self), arValue_Record_CopyT, 7, arValue_Record(*)(arValue_Record, BOOLEAN), (self, deep))
+#define __arValue_Record_Get(self, key, key__len) __SEND(__TYPEOF(self), arValue_Record_Get, 8, arValue_Object(*)(arValue_Record, CHAR*, INTEGER ), (self, key, key__len))
+#define __arValue_Record_Map(self, func) __SEND(__TYPEOF(self), arValue_Record_Map, 9, arValue_Record(*)(arValue_Record, arValue_MapFunction), (self, func))
+#define __arValue_Record_Set(self, key, key__len, value) __SEND(__TYPEOF(self), arValue_Record_Set, 10, void(*)(arValue_Record, CHAR*, INTEGER , arValue_Object), (self, key, key__len, value))
+
+typedef
+  struct arValue_Set__rec *arValue_Set;
+
+typedef
+  struct arValue_Set__rec { /* arValue_ObjectDesc */
+    SET value;
+  } arValue_Set__rec;
+
+import arValue_Object arValue_Set_Copy (arValue_Set self);
+import arValue_Set arValue_Set_CopyT (arValue_Set self);
+import BOOLEAN arValue_Set_Equals (arValue_Set self, arValue_Object other);
+import void arValue_Set_Format (arValue_Set self, arText_Writer *w, void **w__typ);
+#define __arValue_Set_CopyT(self) __SEND(__TYPEOF(self), arValue_Set_CopyT, 6, arValue_Set(*)(arValue_Set), (self))
+
+typedef
+  struct arValue_String__rec { /* arValue_ObjectDesc */
+    arText_String value;
+    INTEGER length;
+  } arValue_String__rec;
+
+import BYTE arValue_String_Compare (arValue_String self, CHAR *value, INTEGER value__len);
+import arValue_String arValue_String_Concat (arValue_String self, arValue_String arg);
+import arValue_Object arValue_String_Copy (arValue_String self);
+import arValue_String arValue_String_CopyT (arValue_String self);
+import BOOLEAN arValue_String_EndsWith (arValue_String self, CHAR *value, INTEGER value__len);
+import BOOLEAN arValue_String_Equals (arValue_String self, arValue_Object other);
+import arValue_String arValue_String_Extract (arValue_String self, INTEGER start, INTEGER count);
+import void arValue_String_Format (arValue_String self, arText_Writer *w, void **w__typ);
+import arValue_List arValue_String_Split (arValue_String self, CHAR separator);
+import BOOLEAN arValue_String_StartsWith (arValue_String self, CHAR *value, INTEGER value__len);
+import INTEGER arValue_String_ToInteger (arValue_String self);
+import REAL arValue_String_ToReal (arValue_String self);
+#define __arValue_String_Compare(self, value, value__len) __SEND(__TYPEOF(self), arValue_String_Compare, 6, BYTE(*)(arValue_String, CHAR*, INTEGER ), (self, value, value__len))
+#define __arValue_String_Concat(self, arg) __SEND(__TYPEOF(self), arValue_String_Concat, 7, arValue_String(*)(arValue_String, arValue_String), (self, arg))
+#define __arValue_String_CopyT(self) __SEND(__TYPEOF(self), arValue_String_CopyT, 8, arValue_String(*)(arValue_String), (self))
+#define __arValue_String_EndsWith(self, value, value__len) __SEND(__TYPEOF(self), arValue_String_EndsWith, 9, BOOLEAN(*)(arValue_String, CHAR*, INTEGER ), (self, value, value__len))
+#define __arValue_String_Extract(self, start, count) __SEND(__TYPEOF(self), arValue_String_Extract, 10, arValue_String(*)(arValue_String, INTEGER, INTEGER), (self, start, count))
+#define __arValue_String_Split(self, separator) __SEND(__TYPEOF(self), arValue_String_Split, 11, arValue_List(*)(arValue_String, CHAR), (self, separator))
+#define __arValue_String_StartsWith(self, value, value__len) __SEND(__TYPEOF(self), arValue_String_StartsWith, 12, BOOLEAN(*)(arValue_String, CHAR*, INTEGER ), (self, value, value__len))
+#define __arValue_String_ToInteger(self) __SEND(__TYPEOF(self), arValue_String_ToInteger, 13, INTEGER(*)(arValue_String), (self))
+#define __arValue_String_ToReal(self) __SEND(__TYPEOF(self), arValue_String_ToReal, 14, REAL(*)(arValue_String), (self))
+
+
+#ifndef INT32_ARRAY_DEF
+#define INT32_ARRAY_DEF
+typedef struct INT32_ARRAY {
+  INTEGER len[1];
+  INTEGER data[1];
+} INT32_ARRAY;
+#endif 
+
+#ifndef arValue_ObjectDesc_PTR_ARRAY_DEF
+#define arValue_ObjectDesc_PTR_ARRAY_DEF
+typedef struct arValue_ObjectDesc_PTR_ARRAY {
+  INTEGER len[1];
+  arValue_ObjectDesc *data[1];
+} arValue_ObjectDesc_PTR_ARRAY;
+#endif 
+
+#ifndef CHAR8_ARRAY_PTR_ARRAY_DEF
+#define CHAR8_ARRAY_PTR_ARRAY_DEF
+typedef struct CHAR8_ARRAY_PTR_ARRAY {
+  INTEGER len[1];
+  struct CHAR8_ARRAY *data[1];
+} CHAR8_ARRAY_PTR_ARRAY;
+#endif 
+
+
+import void **arValue_ObjectDesc__typ;
+import void **arValue_String__rec__typ;
+import void **arValue_Boolean__rec__typ;
+import void **arValue_Integer__rec__typ;
+import void **arValue_Real__rec__typ;
+import void **arValue_Set__rec__typ;
+import void **arValue_ListElement__rec__typ;
+import void **arValue_List__rec__typ;
+import void **arValue_Array__rec__typ;
+import void **arValue_RecordElement__rec__typ;
+import void **arValue_Record__rec__typ;
+
+import arValue_Object arValue_Copy (arValue_Object o);
+import arValue_Object arValue_DeepCopy (arValue_Object o);
+import BOOLEAN arValue_Equals (arValue_Object a, arValue_Object b);
+import void arValue_Format (arText_Writer *w, void **w__typ, arValue_Object o);
+import void arValue_FormatQ (arText_Writer *w, void **w__typ, arValue_Object o);
+import INTEGER arValue_Max (INTEGER a, INTEGER b);
+import INTEGER arValue_Min (INTEGER a, INTEGER b);
+import arValue_Boolean arValue_NewBoolean (BOOLEAN value);
+import arValue_Integer arValue_NewInteger (INTEGER value);
+import arValue_List arValue_NewList (void);
+import arValue_Real arValue_NewReal (REAL value);
+import arValue_Record arValue_NewRecord (void);
+import arValue_Set arValue_NewSet (SET value);
+import arValue_Boolean arValue_ParseBool (CHAR *value, INTEGER value__len);
+import arValue_Integer arValue_ParseInt (CHAR *value, INTEGER value__len);
+import arValue_Real arValue_ParseReal (CHAR *value, INTEGER value__len);
+import arValue_List arValue_Split (CHAR *value, INTEGER value__len, CHAR separator);
+import arValue_String arValue_StringFromBuffer (arText_Buffer *buffer, void **buffer__typ);
+import arValue_String arValue_StringFromCharArray (CHAR *value, INTEGER value__len);
+import arValue_String arValue_StringFromCharPointer (arText_String value);
+import arValue_String arValue_ToJSON (arValue_Object self);
+import arValue_String arValue_ToString (arValue_Object self);
+import arValue_Array arValue_array2 (arValue_Object a, arValue_Object b);
+import arValue_Array arValue_array3 (arValue_Object a, arValue_Object b, arValue_Object c);
+import arValue_Array arValue_array4 (arValue_Object a, arValue_Object b, arValue_Object c, arValue_Object d);
+import arValue_Boolean arValue_bool (BOOLEAN value);
+import arValue_String arValue_char (CHAR value);
+import arValue_Integer arValue_int (INTEGER value);
+import arValue_List arValue_list (void);
+import arValue_Real arValue_real (REAL value);
+import arValue_Record arValue_record (void);
+import arValue_Set arValue_set (SET value);
+import arValue_String arValue_str (CHAR *value, INTEGER value__len);
+import arValue_String arValue_strb (arText_Buffer *value, void **value__typ);
+import arValue_String arValue_strp (arText_String value);
+import void *arValue__init (void);
+
+
+#endif

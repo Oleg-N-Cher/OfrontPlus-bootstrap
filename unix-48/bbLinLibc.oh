@@ -1,0 +1,187 @@
+/* Ofront+ 1.0 -swC -48 */
+
+#ifndef bbLinLibc__oh
+#define bbLinLibc__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  INTEGER bbLinLibc_gregset_t[19];
+
+typedef
+  struct bbLinLibc_fpstate *bbLinLibc_fpregset_t;
+
+struct bbLinLibc__1 {
+  bbLinLibc_gregset_t gregs;
+  bbLinLibc_fpregset_t fpregs;
+  INTEGER oldmask, cr2;
+};
+
+typedef
+  struct bbLinLibc_Dirent {
+    INTEGER d_ino, d_off;
+    SHORTINT d_reclen;
+    BYTE d_type;
+    CHAR d_name[256];
+  } bbLinLibc_Dirent;
+
+typedef
+  bbLinLibc_Dirent *bbLinLibc_PtrDirent;
+
+typedef
+  CHAR *bbLinLibc_PtrSTR;
+
+typedef
+  struct bbLinLibc_sigset_t *bbLinLibc_PtrSigset_t;
+
+typedef
+  struct bbLinLibc_ucontext_t *bbLinLibc_Ptrucontext_t;
+
+typedef
+  bbLinLibc_PtrSTR *bbLinLibc_StrArray;
+
+typedef
+  struct bbLinLibc_fpreg {
+    SHORTINT significand[4];
+    SHORTINT exponent;
+  } bbLinLibc_fpreg;
+
+typedef
+  struct bbLinLibc_fpstate {
+    INTEGER cw, sw, tag, ipoff, cssel, dataoff, datasel;
+    char _prvt0[80];
+    INTEGER status;
+  } bbLinLibc_fpstate;
+
+typedef
+  INTEGER bbLinLibc_sigjmp_buf[39];
+
+typedef
+  struct bbLinLibc_sigset_t {
+    char _prvt0[128];
+  } bbLinLibc_sigset_t;
+
+typedef
+  struct bbLinLibc_stack_t {
+    INTEGER ss_sp;
+    SET ss_flags;
+    INTEGER ss_size;
+  } bbLinLibc_stack_t;
+
+typedef
+  struct bbLinLibc_timespec_t {
+    INTEGER tv_sec, tv_nsec;
+  } bbLinLibc_timespec_t;
+
+typedef
+  struct bbLinLibc_stat64_t {
+    LONGINT st_dev;
+    char _prvt0[8];
+    SET st_mode;
+    INTEGER st_nlink, st_uid, st_gid;
+    LONGINT st_rdev;
+    char _prvt1[8];
+    LONGINT st_size;
+    INTEGER st_blksize;
+    LONGINT st_blocks;
+    bbLinLibc_timespec_t st_atim, st_mtim, st_ctim;
+    LONGINT st_ino;
+  } bbLinLibc_stat64_t;
+
+typedef
+  struct bbLinLibc_stat_t {
+    LONGINT st_dev;
+    char _prvt0[4];
+    INTEGER st_ino;
+    SET st_mode;
+    INTEGER st_nlink, st_uid, st_gid;
+    LONGINT st_rdev;
+    char _prvt1[4];
+    INTEGER st_size, st_blksize, st_blocks;
+    bbLinLibc_timespec_t st_atim, st_mtim, st_ctim;
+    char _prvt2[8];
+  } bbLinLibc_stat_t;
+
+typedef
+  struct bbLinLibc_tmDesc *bbLinLibc_tm;
+
+typedef
+  struct bbLinLibc_tmDesc {
+    INTEGER tm_sec, tm_min, tm_hour, tm_mday, tm_mon, tm_year, tm_wday, tm_yday, tm_isdst, tm_gmtoff;
+    bbLinLibc_PtrSTR tm_zone;
+  } bbLinLibc_tmDesc;
+
+typedef
+  struct bbLinLibc_ucontext_t {
+    INTEGER uc_flags;
+    bbLinLibc_Ptrucontext_t uc_link;
+    bbLinLibc_stack_t uc_stack;
+    struct bbLinLibc__1 uc_mcontext;
+    char _prvt0[128];
+    bbLinLibc_fpstate __fpregs_mem;
+  } bbLinLibc_ucontext_t;
+
+
+
+
+
+import INTEGER bbLinLibc___errno_location (void);
+import INTEGER bbLinLibc___xstat (INTEGER version, bbLinLibc_PtrSTR filename, bbLinLibc_stat_t *buf);
+import INTEGER bbLinLibc___xstat64 (INTEGER version, bbLinLibc_PtrSTR filename, bbLinLibc_stat64_t *buf);
+import INTEGER bbLinLibc_chmod (bbLinLibc_PtrSTR path, SET mode);
+import INTEGER bbLinLibc_clock (void);
+import INTEGER bbLinLibc_clock_gettime (INTEGER clock_id, bbLinLibc_timespec_t *tp);
+import INTEGER bbLinLibc_close (INTEGER d);
+import INTEGER bbLinLibc_closedir (INTEGER dirp);
+import INTEGER bbLinLibc_execv (bbLinLibc_PtrSTR path, bbLinLibc_PtrSTR *argv);
+import INTEGER bbLinLibc_execvp (bbLinLibc_PtrSTR file, bbLinLibc_PtrSTR *argv);
+import void bbLinLibc_exit (INTEGER status);
+import INTEGER bbLinLibc_fchmod (INTEGER fd, SET mode);
+import INTEGER bbLinLibc_fclose (INTEGER stream);
+import INTEGER bbLinLibc_fdopen (INTEGER fildes, bbLinLibc_PtrSTR mode);
+import INTEGER bbLinLibc_fflush (INTEGER s);
+import bbLinLibc_PtrSTR bbLinLibc_fgets (bbLinLibc_PtrSTR str, INTEGER size, INTEGER stream);
+import INTEGER bbLinLibc_fileno (INTEGER stream);
+import INTEGER bbLinLibc_fopen (bbLinLibc_PtrSTR path, bbLinLibc_PtrSTR mode);
+import INTEGER bbLinLibc_fopen64 (bbLinLibc_PtrSTR path, bbLinLibc_PtrSTR mode);
+import INTEGER bbLinLibc_fork (void);
+import INTEGER bbLinLibc_fread (INTEGER ptr, INTEGER size, INTEGER nmemb, INTEGER stream);
+#define bbLinLibc_free(ptr)  free(ptr)
+import INTEGER bbLinLibc_fseek (INTEGER stream, INTEGER offset, INTEGER whence);
+import INTEGER bbLinLibc_fseeko64 (INTEGER stream, LONGINT off, INTEGER whence);
+#define bbLinLibc_fwrite(ptr, size, nmemb, stream)  (SYSTEM_ADRINT)fwrite(ptr, (size_t)size, (size_t)nmemb, (FILE*)stream)
+import bbLinLibc_PtrSTR bbLinLibc_getcwd (bbLinLibc_PtrSTR buf, INTEGER size);
+import bbLinLibc_PtrSTR bbLinLibc_getenv (bbLinLibc_PtrSTR s);
+import bbLinLibc_tm bbLinLibc_gmtime (INTEGER *t);
+#include <setjmp.h>
+#include <stdio.h>
+#include <stdlib.h>
+import bbLinLibc_tm bbLinLibc_localtime (INTEGER *t);
+import LONGINT bbLinLibc_lseek64 (INTEGER fd, LONGINT offset, INTEGER whence);
+import INTEGER bbLinLibc_mkdir (bbLinLibc_PtrSTR path, SET mode);
+import INTEGER bbLinLibc_mmap (INTEGER adr, INTEGER len, SET prot, SET flags, INTEGER fd, INTEGER offset);
+import INTEGER bbLinLibc_mprotect (INTEGER adr, INTEGER len, SET prot);
+import INTEGER bbLinLibc_munmap (INTEGER adr, INTEGER len);
+import INTEGER bbLinLibc_open (bbLinLibc_PtrSTR path, SET flags, SET mode);
+import INTEGER bbLinLibc_opendir (bbLinLibc_PtrSTR filename);
+import INTEGER bbLinLibc_pclose (INTEGER stream);
+import INTEGER bbLinLibc_popen (bbLinLibc_PtrSTR command, bbLinLibc_PtrSTR type);
+import INTEGER bbLinLibc_printf (bbLinLibc_PtrSTR s);
+import INTEGER bbLinLibc_read (INTEGER d, INTEGER buf, INTEGER nbytes);
+import bbLinLibc_PtrDirent bbLinLibc_readdir (INTEGER dirp);
+import INTEGER bbLinLibc_remove (bbLinLibc_PtrSTR path);
+import INTEGER bbLinLibc_rename (bbLinLibc_PtrSTR from, bbLinLibc_PtrSTR to);
+import INTEGER bbLinLibc_sigaddset (bbLinLibc_PtrSigset_t set, INTEGER signo);
+import INTEGER bbLinLibc_sigaltstack (bbLinLibc_stack_t *ss, bbLinLibc_stack_t *oss);
+import INTEGER bbLinLibc_sigemptyset (bbLinLibc_PtrSigset_t set);
+import INTEGER bbLinLibc_sigfillset (bbLinLibc_PtrSigset_t set);
+import void bbLinLibc_siglongjmp (bbLinLibc_sigjmp_buf env, INTEGER val);
+import INTEGER bbLinLibc_sigprocmask (INTEGER how, bbLinLibc_PtrSigset_t set, bbLinLibc_PtrSigset_t oset);
+import INTEGER bbLinLibc_strftime (bbLinLibc_PtrSTR buf, INTEGER maxsize, bbLinLibc_PtrSTR format, bbLinLibc_tm timeptr);
+import INTEGER bbLinLibc_sysconf (INTEGER name);
+import INTEGER bbLinLibc_system (bbLinLibc_PtrSTR string);
+import INTEGER bbLinLibc_time (INTEGER *t);
+import INTEGER bbLinLibc_waitpid (INTEGER wpid, INTEGER *status, SET options);
+import INTEGER bbLinLibc_write (INTEGER d, INTEGER buf, INTEGER nbytes);
+
+#endif

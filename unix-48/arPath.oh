@@ -1,0 +1,17 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef arPath__oh
+#define arPath__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void arPath_BaseName (CHAR *path, INTEGER path__len, CHAR *base, INTEGER base__len);
+import void arPath_DirName (CHAR *path, INTEGER path__len, CHAR *dir, INTEGER dir__len);
+import void arPath_ExtName (CHAR *path, INTEGER path__len, CHAR *ext, INTEGER ext__len);
+import void *arPath__init (void);
+
+
+#endif

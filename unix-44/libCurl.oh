@@ -1,0 +1,26 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef libCurl__oh
+#define libCurl__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  INTEGER (*libCurl_Callback)(INTEGER, INTEGER, INTEGER, INTEGER);
+
+typedef
+  CHAR (*libCurl_PCURL)[1];
+
+
+
+
+__EXTERN void curl_easy_cleanup (libCurl_PCURL curl);
+__EXTERN libCurl_PCURL curl_easy_init (void);
+__EXTERN INTEGER curl_easy_perform (libCurl_PCURL curl);
+__EXTERN INTEGER curl_easy_strerror (INTEGER code);
+
+#define libCurl_curl_easy_setopt_A(handle, option, parameter)  curl_easy_setopt(handle, option, (CHAR*)(parameter))
+#define libCurl_curl_easy_setopt_C(handle, option, callback)  curl_easy_setopt(handle, option, callback)
+#define libCurl_curl_easy_setopt_I(handle, option, parameter)  curl_easy_setopt(handle, option, parameter)
+
+#endif

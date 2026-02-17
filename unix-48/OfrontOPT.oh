@@ -1,0 +1,155 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef OfrontOPT__oh
+#define OfrontOPT__oh
+
+#include "SYSTEM.oh"
+#include "OfrontOPS.oh"
+
+typedef
+  struct OfrontOPT_ConstDesc *OfrontOPT_Const;
+
+typedef
+  struct OfrontOPT_ConstArr__rec *OfrontOPT_ConstArr;
+
+typedef
+  struct OfrontOPT_ConstArr__rec {
+    struct INT8_ARRAY *val1;
+    struct INT16_ARRAY *val2;
+    struct INT32_ARRAY *val4;
+    struct INT64_ARRAY *val8;
+  } OfrontOPT_ConstArr__rec;
+
+typedef
+  struct OfrontOPT_ConstDesc {
+    OfrontOPS_String ext;
+    LONGINT intval;
+    INTEGER intval2;
+    SET setval;
+    REAL realval;
+    OfrontOPT_ConstArr arr;
+  } OfrontOPT_ConstDesc;
+
+typedef
+  struct OfrontOPT_NodeDesc *OfrontOPT_Node;
+
+typedef
+  struct OfrontOPT_StrDesc *OfrontOPT_Struct;
+
+typedef
+  struct OfrontOPT_ObjDesc *OfrontOPT_Object;
+
+typedef
+  struct OfrontOPT_NodeDesc {
+    OfrontOPT_Node left, right, link;
+    BYTE class, subcl, hint;
+    BOOLEAN readonly;
+    OfrontOPT_Struct typ;
+    OfrontOPT_Object obj;
+    OfrontOPT_Const conval;
+  } OfrontOPT_NodeDesc;
+
+typedef
+  struct OfrontOPT_ObjDesc {
+    OfrontOPT_Object left, right, link, scope;
+    OfrontOPS_String name;
+    BOOLEAN leaf;
+    BYTE sysflag, mode, mnolev, vis, history;
+    BOOLEAN used, fpdone;
+    INTEGER fprint;
+    OfrontOPT_Struct typ, ptyp;
+    OfrontOPT_Const conval;
+    OfrontOPT_Object nlink;
+    OfrontOPS_String entry;
+    INTEGER adr, linkadr;
+    SHORTINT x;
+  } OfrontOPT_ObjDesc;
+
+typedef
+  struct OfrontOPT_StrDesc {
+    BYTE form, comp, mno, extlev;
+    SHORTINT ref, sysflag;
+    INTEGER n, size, align, txtpos;
+    BOOLEAN allocated, pbused, pvused, exp;
+    char _prvt0[2];
+    BYTE attribute;
+    char _prvt1[4];
+    INTEGER pbfp, pvfp;
+    OfrontOPT_Struct BaseTyp;
+    OfrontOPT_Object link, strobj;
+  } OfrontOPT_StrDesc;
+
+
+#ifndef INT8_ARRAY_DEF
+#define INT8_ARRAY_DEF
+typedef struct INT8_ARRAY {
+  INTEGER len[1];
+  BYTE data[1];
+} INT8_ARRAY;
+#endif 
+
+#ifndef INT16_ARRAY_DEF
+#define INT16_ARRAY_DEF
+typedef struct INT16_ARRAY {
+  INTEGER len[1];
+  SHORTINT data[1];
+} INT16_ARRAY;
+#endif 
+
+#ifndef INT32_ARRAY_DEF
+#define INT32_ARRAY_DEF
+typedef struct INT32_ARRAY {
+  INTEGER len[1];
+  INTEGER data[1];
+} INT32_ARRAY;
+#endif 
+
+#ifndef INT64_ARRAY_DEF
+#define INT64_ARRAY_DEF
+typedef struct INT64_ARRAY {
+  INTEGER len[1];
+  LONGINT data[1];
+} INT64_ARRAY;
+#endif 
+
+import void (*OfrontOPT_typSize)(OfrontOPT_Struct);
+import OfrontOPT_Object OfrontOPT_topScope;
+import OfrontOPT_Struct OfrontOPT_undftyp, OfrontOPT_bytetyp, OfrontOPT_booltyp, OfrontOPT_char8typ, OfrontOPT_sinttyp, OfrontOPT_inttyp, OfrontOPT_linttyp, OfrontOPT_realtyp, OfrontOPT_lrltyp, OfrontOPT_settyp, OfrontOPT_string8typ, OfrontOPT_niltyp, OfrontOPT_notyp, OfrontOPT_sysptrtyp, OfrontOPT_ubytetyp, OfrontOPT_anytyp, OfrontOPT_anyptrtyp, OfrontOPT_char16typ, OfrontOPT_string16typ;
+import BYTE OfrontOPT_nofGmod;
+import OfrontOPT_Object OfrontOPT_GlbMod[64];
+import OfrontOPS_Name OfrontOPT_SelfName;
+import BOOLEAN OfrontOPT_SYSimported;
+import OfrontOPS_String OfrontOPT_null;
+
+import void **OfrontOPT_ConstArr__rec__typ;
+import void **OfrontOPT_ConstDesc__typ;
+import void **OfrontOPT_ObjDesc__typ;
+import void **OfrontOPT_StrDesc__typ;
+import void **OfrontOPT_NodeDesc__typ;
+
+import void OfrontOPT_Close (void);
+import void OfrontOPT_CloseScope (void);
+import BOOLEAN OfrontOPT_ContainsRealType (OfrontOPT_Struct typ);
+import BOOLEAN OfrontOPT_EqualType (OfrontOPT_Struct x, OfrontOPT_Struct y);
+import void OfrontOPT_Export (BOOLEAN *ext, BOOLEAN *new);
+import BOOLEAN OfrontOPT_Extends (OfrontOPT_Struct x, OfrontOPT_Struct y);
+import void OfrontOPT_Find (CHAR *name, INTEGER name__len, OfrontOPT_Object *res);
+import void OfrontOPT_FindBaseField (CHAR *name, INTEGER name__len, OfrontOPT_Struct typ, OfrontOPT_Object *res);
+import void OfrontOPT_FindField (CHAR *name, INTEGER name__len, OfrontOPT_Struct typ, OfrontOPT_Object *res);
+import void OfrontOPT_FindImport (OfrontOPT_Object mod, OfrontOPT_Object *res);
+import void OfrontOPT_Import (CHAR *aliasName, INTEGER aliasName__len, CHAR *name, INTEGER name__len, BOOLEAN *done);
+import BOOLEAN OfrontOPT_Includes (INTEGER xform, INTEGER yform);
+import void OfrontOPT_Init (CHAR *name, INTEGER name__len, CHAR lang, SET opt);
+import void OfrontOPT_Insert (CHAR *name, INTEGER name__len, OfrontOPT_Object *obj);
+import void OfrontOPT_InsertImport (OfrontOPT_Object obj, OfrontOPT_Object *root, OfrontOPT_Object *old);
+import OfrontOPT_Const OfrontOPT_NewConst (void);
+import OfrontOPS_String OfrontOPT_NewName (CHAR *name, INTEGER name__len);
+import OfrontOPT_Node OfrontOPT_NewNode (BYTE class);
+import OfrontOPT_Object OfrontOPT_NewObj (void);
+import OfrontOPT_Struct OfrontOPT_NewStr (BYTE form, BYTE comp);
+import void OfrontOPT_OpenScope (BYTE level, OfrontOPT_Object owner);
+import BOOLEAN OfrontOPT_SameType (OfrontOPT_Struct x, OfrontOPT_Struct y);
+import void *OfrontOPT__init (void);
+
+
+#endif

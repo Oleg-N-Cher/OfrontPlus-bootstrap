@@ -1,0 +1,33 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef ZlibWriters__oh
+#define ZlibWriters__oh
+
+#include "SYSTEM.oh"
+#include "Files.oh"
+
+typedef
+  struct ZlibWriters_Writer {
+    INTEGER res;
+    BYTE flush;
+    BOOLEAN wrapper;
+    LONGINT _prvt0;
+    char _prvt1[26];
+    INTEGER crc32;
+    char _prvt2[2568];
+  } ZlibWriters_Writer;
+
+
+
+import void **ZlibWriters_Writer__typ;
+
+import void ZlibWriters_Close (ZlibWriters_Writer *w, void **w__typ);
+import void ZlibWriters_Compress (Files_Rider *src, void **src__typ, Files_Rider *dst, void **dst__typ, INTEGER srclen, INTEGER *dstlen, BYTE level, BYTE strategy, INTEGER *crc32, INTEGER *res);
+import void ZlibWriters_Open (ZlibWriters_Writer *w, void **w__typ, BYTE level, BYTE strategy, BYTE flush, BOOLEAN wrapper, Files_Rider r);
+import void ZlibWriters_SetParams (ZlibWriters_Writer *w, void **w__typ, BYTE level, BYTE strategy, BYTE flush);
+import void ZlibWriters_Write (ZlibWriters_Writer *w, void **w__typ, CHAR ch);
+import void ZlibWriters_WriteBytes (ZlibWriters_Writer *w, void **w__typ, CHAR *buf, INTEGER buf__len, INTEGER offset, INTEGER len, INTEGER *written);
+import void *ZlibWriters__init (void);
+
+
+#endif

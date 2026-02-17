@@ -1,0 +1,45 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef powStrings__oh
+#define powStrings__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct CHAR8_ARRAY *powStrings_String;
+
+
+#ifndef CHAR8_ARRAY_DEF
+#define CHAR8_ARRAY_DEF
+typedef struct CHAR8_ARRAY {
+  INTEGER len[1];
+  CHAR data[1];
+} CHAR8_ARRAY;
+#endif 
+
+
+
+import void powStrings_Append (CHAR *dest, INTEGER dest__len, CHAR *src, INTEGER src__len);
+import void powStrings_AppendChar (CHAR *dest, INTEGER dest__len, CHAR ch);
+import void powStrings_Copy (CHAR *source, INTEGER source__len, CHAR *dest, INTEGER dest__len, INTEGER pos, INTEGER n);
+import void powStrings_Delete (CHAR *t, INTEGER t__len, INTEGER pos, INTEGER n);
+import void powStrings_HexStr (INTEGER x, CHAR *t, INTEGER t__len);
+import void powStrings_Insert (CHAR *source, INTEGER source__len, CHAR *dest, INTEGER dest__len, INTEGER pos);
+import void powStrings_InsertChar (CHAR x, CHAR *t, INTEGER t__len, INTEGER pos);
+import void powStrings_LeftAlign (CHAR *t, INTEGER t__len, INTEGER n);
+import INTEGER powStrings_Length (CHAR *t, INTEGER t__len);
+import INTEGER powStrings_Pos (CHAR *pattern, INTEGER pattern__len, CHAR *t, INTEGER t__len, INTEGER start);
+import INTEGER powStrings_PosChar (CHAR x, CHAR *t, INTEGER t__len, INTEGER start);
+import void powStrings_RemoveLeadingSpaces (CHAR *t, INTEGER t__len);
+import void powStrings_RemoveTrailingSpaces (CHAR *t, INTEGER t__len);
+import void powStrings_ReverseStringT (CHAR *t, INTEGER t__len, INTEGER n);
+import void powStrings_RightAlign (CHAR *t, INTEGER t__len, INTEGER n);
+import void powStrings_Str (INTEGER x, CHAR *t, INTEGER t__len);
+import void powStrings_UpCase (CHAR *t, INTEGER t__len);
+import CHAR powStrings_UpCaseChar (CHAR x);
+import INTEGER powStrings_Val (CHAR *t, INTEGER t__len);
+import SHORTINT powStrings_ValResult (CHAR *t, INTEGER t__len);
+import void *powStrings__init (void);
+
+
+#endif

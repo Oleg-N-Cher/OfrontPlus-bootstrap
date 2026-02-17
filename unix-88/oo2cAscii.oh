@@ -1,0 +1,14 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef oo2cAscii__oh
+#define oo2cAscii__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void *oo2cAscii__init (void);
+
+
+#endif

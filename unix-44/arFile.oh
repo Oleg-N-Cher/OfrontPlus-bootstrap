@@ -1,0 +1,69 @@
+/* Ofront+ 1.0 -s2 -44 */
+
+#ifndef arFile__oh
+#define arFile__oh
+
+#include "SYSTEM.oh"
+#include "arText.oh"
+
+typedef
+  struct arFile_FILE__rec *arFile_FILE;
+
+typedef
+  struct arFile_FILE__rec {
+    char _prvt0[1];
+  } arFile_FILE__rec;
+
+typedef
+  struct arFile_File__rec *arFile_File;
+
+typedef
+  struct arFile_File__rec {
+    INTEGER _prvt0;
+    BOOLEAN success;
+  } arFile_File__rec;
+
+import void arFile_File_Close (arFile_File self);
+import BOOLEAN arFile_File_EOF (arFile_File self);
+typedef
+  struct arFile_Stream *arFile_StreamPtr;
+
+import arFile_StreamPtr arFile_File_GetStream (arFile_File self);
+import void arFile_File_PutC (arFile_File self, CHAR ch);
+import INTEGER arFile_File_PutS (arFile_File self, CHAR *str, INTEGER str__len);
+import INTEGER arFile_File_Seek (arFile_File self, LONGINT offset, INTEGER whence);
+import LONGINT arFile_File_Tell (arFile_File self);
+#define __arFile_File_Close(self) __SEND(__TYPEOF(self), arFile_File_Close, 0, void(*)(arFile_File), (self))
+#define __arFile_File_EOF(self) __SEND(__TYPEOF(self), arFile_File_EOF, 1, BOOLEAN(*)(arFile_File), (self))
+#define __arFile_File_GetStream(self) __SEND(__TYPEOF(self), arFile_File_GetStream, 4, arFile_StreamPtr(*)(arFile_File), (self))
+#define __arFile_File_PutC(self, ch) __SEND(__TYPEOF(self), arFile_File_PutC, 6, void(*)(arFile_File, CHAR), (self, ch))
+#define __arFile_File_PutS(self, str, str__len) __SEND(__TYPEOF(self), arFile_File_PutS, 7, INTEGER(*)(arFile_File, CHAR*, INTEGER ), (self, str, str__len))
+#define __arFile_File_Seek(self, offset, whence) __SEND(__TYPEOF(self), arFile_File_Seek, 8, INTEGER(*)(arFile_File, LONGINT, INTEGER), (self, offset, whence))
+#define __arFile_File_Tell(self) __SEND(__TYPEOF(self), arFile_File_Tell, 9, LONGINT(*)(arFile_File), (self))
+
+typedef
+  struct arFile_Stream { /* arText_Stream */
+    INTEGER _prvt0;
+  } arFile_Stream;
+
+import void arFile_Stream_Char (arFile_Stream *self, void **self__typ, CHAR value);
+import void arFile_Stream_Flush (arFile_Stream *self, void **self__typ);
+import void arFile_Stream_String (arFile_Stream *self, void **self__typ, CHAR *value, INTEGER value__len);
+
+
+import arFile_File arFile_out, arFile_err;
+
+import void **arFile_Stream__typ;
+import void **arFile_File__rec__typ;
+
+import arFile_File arFile_Open (CHAR *name, INTEGER name__len, CHAR *mode, INTEGER mode__len);
+import void *arFile__init (void);
+
+#include <errno.h>
+#include <stdio.h>
+#define arFile_fclose(file)  fclose((FILE *)file)
+#define arFile_feof(file)  feof((FILE *)file)
+#define arFile_fopen(name, name__len, mode, mode__len)  (arFile_FILE) fopen((const char *)name, (const char *)mode)
+#define arFile_fseek(file, offset, whence)  fseek((FILE *)file, offset, whence)
+
+#endif

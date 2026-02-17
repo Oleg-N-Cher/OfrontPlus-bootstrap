@@ -1,0 +1,35 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef oo2cStrings__oh
+#define oo2cStrings__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void oo2cStrings_Append (CHAR *source, INTEGER source__len, CHAR *destination, INTEGER destination__len);
+import void oo2cStrings_Assign (CHAR *source, INTEGER source__len, CHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cStrings_CanAppendAll (INTEGER sourceLength, CHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cStrings_CanAssignAll (INTEGER sourceLength, CHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cStrings_CanConcatAll (INTEGER source1Length, INTEGER source2Length, CHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cStrings_CanDeleteAll (INTEGER stringLength, INTEGER startPos, INTEGER numberToDelete);
+import BOOLEAN oo2cStrings_CanExtractAll (INTEGER sourceLength, INTEGER startPos, INTEGER numberToExtract, CHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cStrings_CanInsertAll (INTEGER sourceLength, INTEGER startPos, CHAR *destination, INTEGER destination__len);
+import BOOLEAN oo2cStrings_CanReplaceAll (INTEGER sourceLength, INTEGER startPos, CHAR *destination, INTEGER destination__len);
+import void oo2cStrings_Capitalize (CHAR *stringVar, INTEGER stringVar__len);
+import BYTE oo2cStrings_Compare (CHAR *stringVal1, INTEGER stringVal1__len, CHAR *stringVal2, INTEGER stringVal2__len);
+import void oo2cStrings_Concat (CHAR *source1, INTEGER source1__len, CHAR *source2, INTEGER source2__len, CHAR *destination, INTEGER destination__len);
+import void oo2cStrings_Delete (CHAR *stringVar, INTEGER stringVar__len, INTEGER startPos, INTEGER numberToDelete);
+import BOOLEAN oo2cStrings_Equal (CHAR *stringVal1, INTEGER stringVal1__len, CHAR *stringVal2, INTEGER stringVal2__len);
+import void oo2cStrings_Extract (CHAR *source, INTEGER source__len, INTEGER startPos, INTEGER numberToExtract, CHAR *destination, INTEGER destination__len);
+import void oo2cStrings_FindDiff (CHAR *stringVal1, INTEGER stringVal1__len, CHAR *stringVal2, INTEGER stringVal2__len, BOOLEAN *differenceFound, INTEGER *posOfDifference);
+import void oo2cStrings_FindNext (CHAR *pattern, INTEGER pattern__len, CHAR *stringToSearch, INTEGER stringToSearch__len, INTEGER startPos, BOOLEAN *patternFound, INTEGER *posOfPattern);
+import void oo2cStrings_FindPrev (CHAR *pattern, INTEGER pattern__len, CHAR *stringToSearch, INTEGER stringToSearch__len, INTEGER startPos, BOOLEAN *patternFound, INTEGER *posOfPattern);
+import void oo2cStrings_Insert (CHAR *source, INTEGER source__len, INTEGER startPos, CHAR *destination, INTEGER destination__len);
+import INTEGER oo2cStrings_Length (CHAR *stringVal, INTEGER stringVal__len);
+import void oo2cStrings_Replace (CHAR *source, INTEGER source__len, INTEGER startPos, CHAR *destination, INTEGER destination__len);
+import void *oo2cStrings__init (void);
+
+
+#endif

@@ -1,0 +1,52 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef arStream__oh
+#define arStream__oh
+
+#include "SYSTEM.oh"
+#include "arText.oh"
+
+typedef
+  struct arStream_FILE__rec *arStream_FILE;
+
+typedef
+  struct arStream_FILE__rec {
+    char _prvt0[1];
+  } arStream_FILE__rec;
+
+typedef
+  struct arStream_File { /* arText_StreamWriter */
+    CHAR intFormat[8];
+    CHAR hexFormat[8];
+    CHAR realFormat[8];
+    BOOLEAN quoteLiterals, setAsList;
+    arText_StreamPtr stream;
+  } arStream_File;
+
+import void arStream_File_Close (arStream_File *self, void **self__typ);
+import BOOLEAN arStream_File_Open (arStream_File *self, void **self__typ, CHAR *name, INTEGER name__len, CHAR *mode, INTEGER mode__len);
+#define __arStream_File_Close(self, self__typ) __SEND(self__typ, arStream_File_Close, 12, void(*)(arStream_File*, void **), (self, self__typ))
+#define __arStream_File_Open(self, self__typ, name, name__len, mode, mode__len) __SEND(self__typ, arStream_File_Open, 13, BOOLEAN(*)(arStream_File*, void **, CHAR*, INTEGER , CHAR*, INTEGER ), (self, self__typ, name, name__len, mode, mode__len))
+
+typedef
+  struct arStream_Stream { /* arText_Stream */
+    LONGINT _prvt0;
+  } arStream_Stream;
+
+import void arStream_Stream_Char (arStream_Stream *self, void **self__typ, CHAR value);
+import void arStream_Stream_Flush (arStream_Stream *self, void **self__typ);
+import void arStream_Stream_String (arStream_Stream *self, void **self__typ, CHAR *value, INTEGER value__len);
+
+
+import arText_StreamWriter arStream_out, arStream_err;
+
+import void **arStream_Stream__typ;
+import void **arStream_File__typ;
+
+import void *arStream__init (void);
+
+#include <stdio.h>
+#define arStream_fclose(file)  fclose((FILE *)file)
+#define arStream_fopen(name, name__len, mode, mode__len)  (arStream_FILE) fopen((const char *)name, (const char *)mode)
+
+#endif

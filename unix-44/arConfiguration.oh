@@ -1,0 +1,122 @@
+/* Ofront+ 1.0 -s2 -44 */
+
+#ifndef arConfiguration__oh
+#define arConfiguration__oh
+
+#include "SYSTEM.oh"
+#include "arStringAssoc.oh"
+#include "arStrings.oh"
+#include "arStringList.oh"
+
+typedef
+  struct arConfiguration_Assoc__rec *arConfiguration_Assoc;
+
+typedef
+  struct arConfiguration_ValueDesc *arConfiguration_Value;
+
+typedef
+  struct arConfiguration_ValueDesc {
+    arStrings_StringPtr name, synopsis, desc;
+    arConfiguration_Value next;
+  } arConfiguration_ValueDesc;
+
+import void arConfiguration_Value_Accept (arConfiguration_Value self, arStringList_Array argv, INTEGER *pos);
+import void arConfiguration_Value_Format (arConfiguration_Value self);
+import void arConfiguration_Value_Init (arConfiguration_Value self, CHAR *name, INTEGER name__len, CHAR *desc, INTEGER desc__len);
+#define __arConfiguration_Value_Accept(self, argv, pos) __SEND(__TYPEOF(self), arConfiguration_Value_Accept, 1, void(*)(arConfiguration_Value, arStringList_Array, INTEGER*), (self, argv, pos))
+#define __arConfiguration_Value_Format(self) __SEND(__TYPEOF(self), arConfiguration_Value_Format, 2, void(*)(arConfiguration_Value), (self))
+#define __arConfiguration_Value_Init(self, name, name__len, desc, desc__len) __SEND(__TYPEOF(self), arConfiguration_Value_Init, 3, void(*)(arConfiguration_Value, CHAR*, INTEGER , CHAR*, INTEGER ), (self, name, name__len, desc, desc__len))
+
+typedef
+  struct arConfiguration_Assoc__rec { /* arConfiguration_ValueDesc */
+    arStrings_StringPtr name, synopsis, desc;
+    arConfiguration_Value next;
+    arStringAssoc_Assoc value;
+    BOOLEAN multi;
+  } arConfiguration_Assoc__rec;
+
+import void arConfiguration_Assoc_Accept (arConfiguration_Assoc self, arStringList_Array argv, INTEGER *pos);
+
+typedef
+  struct arConfiguration_Boolean__rec *arConfiguration_Boolean;
+
+typedef
+  struct arConfiguration_Boolean__rec { /* arConfiguration_ValueDesc */
+    arStrings_StringPtr name, synopsis, desc;
+    arConfiguration_Value next;
+    BOOLEAN value;
+  } arConfiguration_Boolean__rec;
+
+import void arConfiguration_Boolean_Accept (arConfiguration_Boolean self, arStringList_Array argv, INTEGER *pos);
+import void arConfiguration_Boolean_Format (arConfiguration_Boolean self);
+
+typedef
+  void (*arConfiguration_Handler)(arStringList_Array, INTEGER*);
+
+typedef
+  struct arConfiguration_Integer__rec *arConfiguration_Integer;
+
+typedef
+  struct arConfiguration_Integer__rec { /* arConfiguration_ValueDesc */
+    arStrings_StringPtr name, synopsis, desc;
+    arConfiguration_Value next;
+    SHORTINT value, min, max;
+  } arConfiguration_Integer__rec;
+
+import void arConfiguration_Integer_Accept (arConfiguration_Integer self, arStringList_Array argv, INTEGER *pos);
+import void arConfiguration_Integer_Format (arConfiguration_Integer self);
+
+typedef
+  struct arConfiguration_Procedure__rec *arConfiguration_Procedure;
+
+typedef
+  struct arConfiguration_Procedure__rec { /* arConfiguration_ValueDesc */
+    arStrings_StringPtr name, synopsis, desc;
+    arConfiguration_Value next;
+    char _prvt0[4];
+  } arConfiguration_Procedure__rec;
+
+import void arConfiguration_Procedure_Accept (arConfiguration_Procedure self, arStringList_Array argv, INTEGER *pos);
+
+typedef
+  struct arConfiguration_String__rec *arConfiguration_String;
+
+typedef
+  struct arConfiguration_String__rec { /* arConfiguration_ValueDesc */
+    arStrings_StringPtr name, synopsis, desc;
+    arConfiguration_Value next;
+    arStrings_StringPtr value;
+  } arConfiguration_String__rec;
+
+import void arConfiguration_String_Accept (arConfiguration_String self, arStringList_Array argv, INTEGER *pos);
+import void arConfiguration_String_Format (arConfiguration_String self);
+
+
+import arStringList_Array arConfiguration_argv;
+import arConfiguration_Value arConfiguration_values;
+
+import void **arConfiguration_ValueDesc__typ;
+import void **arConfiguration_Boolean__rec__typ;
+import void **arConfiguration_Integer__rec__typ;
+import void **arConfiguration_String__rec__typ;
+import void **arConfiguration_Procedure__rec__typ;
+import void **arConfiguration_Assoc__rec__typ;
+
+import void arConfiguration_CheckFinished (INTEGER pos);
+import BOOLEAN arConfiguration_CheckOption (INTEGER *pos);
+import void arConfiguration_GetArg (arStringList_Array argv, INTEGER *pos, arStrings_StringPtr *arg);
+import arConfiguration_Assoc arConfiguration_NewAssoc (CHAR *name, INTEGER name__len, CHAR *desc, INTEGER desc__len, BOOLEAN multi);
+import arConfiguration_Boolean arConfiguration_NewBoolean (CHAR *name, INTEGER name__len, CHAR *desc, INTEGER desc__len, BOOLEAN default_);
+import arConfiguration_Integer arConfiguration_NewInteger (CHAR *name, INTEGER name__len, CHAR *desc, INTEGER desc__len, SHORTINT default_, SHORTINT min, SHORTINT max);
+import void arConfiguration_NewProcedure (CHAR *name, INTEGER name__len, CHAR *desc, INTEGER desc__len, arConfiguration_Handler value);
+import arConfiguration_String arConfiguration_NewString (CHAR *name, INTEGER name__len, CHAR *desc, INTEGER desc__len, CHAR *default_, INTEGER default___len);
+import BOOLEAN arConfiguration_ParseBoolean (CHAR *arg, INTEGER arg__len, BOOLEAN *result);
+import BOOLEAN arConfiguration_ParseInteger (CHAR *arg, INTEGER arg__len, SHORTINT *result);
+import BOOLEAN arConfiguration_ReadOptions (CHAR *fileName, INTEGER fileName__len);
+import void arConfiguration_ScanOptions (INTEGER *pos);
+import void arConfiguration_SetBanner (CHAR *text, INTEGER text__len);
+import void arConfiguration_Usage (void);
+import void *arConfiguration__init (void);
+
+
+#endif

@@ -1,0 +1,29 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef ZlibReaders__oh
+#define ZlibReaders__oh
+
+#include "SYSTEM.oh"
+#include "Files.oh"
+
+typedef
+  struct ZlibReaders_Reader {
+    INTEGER res, crc32;
+    BOOLEAN wrapper;
+    LONGINT _prvt0;
+    char _prvt1[600];
+  } ZlibReaders_Reader;
+
+
+
+import void **ZlibReaders_Reader__typ;
+
+import void ZlibReaders_Close (ZlibReaders_Reader *r, void **r__typ);
+import void ZlibReaders_Open (ZlibReaders_Reader *r, void **r__typ, BOOLEAN wrapper, Files_Rider *fr, void **fr__typ);
+import void ZlibReaders_Read (ZlibReaders_Reader *r, void **r__typ, CHAR *ch);
+import void ZlibReaders_ReadBytes (ZlibReaders_Reader *r, void **r__typ, CHAR *buf, INTEGER buf__len, INTEGER offset, INTEGER len, INTEGER *read);
+import void ZlibReaders_Uncompress (Files_Rider *src, void **src__typ, Files_Rider *dst, void **dst__typ, INTEGER *crc32, INTEGER *res);
+import void *ZlibReaders__init (void);
+
+
+#endif

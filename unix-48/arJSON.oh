@@ -1,0 +1,19 @@
+/* Ofront+ 1.0 -s2 -48 */
+
+#ifndef arJSON__oh
+#define arJSON__oh
+
+#include "SYSTEM.oh"
+#include "arValue.oh"
+
+
+
+
+import arValue_Object arJSON_ParseJSON (CHAR *text, INTEGER text__len, INTEGER *err, SET features);
+import arValue_Object arJSON_ParseString (CHAR *text, INTEGER text__len);
+import arValue_String arJSON_ReadFile (CHAR *name, INTEGER name__len);
+import arValue_Object arJSON_ReadJSON (CHAR *name, INTEGER name__len);
+import void *arJSON__init (void);
+
+
+#endif

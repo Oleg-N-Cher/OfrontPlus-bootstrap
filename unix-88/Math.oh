@@ -1,0 +1,46 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef Math__oh
+#define Math__oh
+
+#include "SYSTEM.oh"
+
+
+import void (*Math_ErrorHandler)(SHORTINT);
+import SHORTINT Math_err;
+
+
+import void Math_ClearError (void);
+import BOOLEAN Math_IsRMathException (void);
+import SHORTREAL Math_arccos (SHORTREAL x);
+import SHORTREAL Math_arccosh (SHORTREAL x);
+import SHORTREAL Math_arcsin (SHORTREAL x);
+import SHORTREAL Math_arcsinh (SHORTREAL x);
+import SHORTREAL Math_arctan (SHORTREAL x);
+import SHORTREAL Math_arctan2 (SHORTREAL xn, SHORTREAL xd);
+import SHORTREAL Math_arctanh (SHORTREAL x);
+import SHORTREAL Math_cos (SHORTREAL x);
+import SHORTREAL Math_cosh (SHORTREAL x);
+import SHORTREAL Math_exp (SHORTREAL x);
+import SHORTINT Math_exponent (SHORTREAL x);
+import SHORTREAL Math_fraction (SHORTREAL x);
+import SHORTREAL Math_ipower (SHORTREAL x, SHORTINT base);
+import SHORTREAL Math_ln (SHORTREAL x);
+import SHORTREAL Math_log (SHORTREAL x, SHORTREAL base);
+import SHORTREAL Math_power (SHORTREAL base, SHORTREAL exp);
+import SHORTREAL Math_pred (SHORTREAL x);
+import INTEGER Math_round (SHORTREAL x);
+import SHORTREAL Math_scale (SHORTREAL x, SHORTINT n);
+import SHORTREAL Math_sign (SHORTREAL x);
+import SHORTREAL Math_sin (SHORTREAL x);
+import void Math_sincos (SHORTREAL x, SHORTREAL *Sin, SHORTREAL *Cos);
+import SHORTREAL Math_sinh (SHORTREAL x);
+import SHORTREAL Math_sqrt (SHORTREAL x);
+import SHORTREAL Math_succ (SHORTREAL x);
+import SHORTREAL Math_tan (SHORTREAL x);
+import SHORTREAL Math_tanh (SHORTREAL x);
+import SHORTREAL Math_ulp (SHORTREAL x);
+import void *Math__init (void);
+
+
+#endif

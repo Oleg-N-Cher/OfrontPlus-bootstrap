@@ -1,0 +1,22 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef arErr__oh
+#define arErr__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void arErr_Bool (BOOLEAN value);
+import void arErr_Char (CHAR value);
+import void arErr_Flush (void);
+import void arErr_Hex (INTEGER value);
+import void arErr_Int (INTEGER value);
+import void arErr_Ln (void);
+import void arErr_Real (REAL value);
+import void arErr_String (CHAR *text, INTEGER text__len);
+import void *arErr__init (void);
+
+
+#endif

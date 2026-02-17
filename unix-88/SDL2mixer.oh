@@ -1,0 +1,95 @@
+/* Ofront+ 1.0 -sC -88 */
+
+#ifndef SDL2mixer__oh
+#define SDL2mixer__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct SDL2mixer_Mix_Chunk {
+    INTEGER allocated;
+    LONGINT abuf;
+    INTEGER alen;
+    BYTE volume;
+  } SDL2mixer_Mix_Chunk;
+
+typedef
+  struct SDL2mixer_MusicUnion {
+    char _prvt0[1];
+  } SDL2mixer_MusicUnion;
+
+typedef
+  struct SDL2mixer_Mix_Music {
+    BYTE type;
+    SDL2mixer_MusicUnion data;
+    BYTE fading;
+    INTEGER fade_volume, fade_step, fade_steps, error;
+  } SDL2mixer_Mix_Music;
+
+typedef
+  SDL2mixer_Mix_Chunk *SDL2mixer_PMix_Chunk;
+
+typedef
+  SDL2mixer_Mix_Music *SDL2mixer_PMix_Music;
+
+
+
+
+__EXTERN INTEGER Mix_AllocateChannels (INTEGER numchannels);
+__EXTERN void Mix_CloseAudio (void);
+__EXTERN INTEGER Mix_ExpireChannel (INTEGER channel, INTEGER ticks);
+__EXTERN INTEGER Mix_FadeInChannelTimed (INTEGER channel, SDL2mixer_PMix_Chunk chunk, INTEGER loops, INTEGER ms, INTEGER ticks);
+__EXTERN INTEGER Mix_FadeInMusic (SDL2mixer_PMix_Music music, INTEGER loops, INTEGER ms);
+__EXTERN INTEGER Mix_FadeOutChannel (INTEGER which, INTEGER ms);
+__EXTERN INTEGER Mix_FadeOutGroup (INTEGER tag, INTEGER ms);
+__EXTERN INTEGER Mix_FadeOutMusic (INTEGER ms);
+__EXTERN BYTE Mix_FadingChannel (INTEGER which);
+__EXTERN BYTE Mix_FadingMusic (void);
+__EXTERN void Mix_FreeChunk (SDL2mixer_PMix_Chunk chunk);
+__EXTERN void Mix_FreeMusic (SDL2mixer_PMix_Music music);
+__EXTERN BYTE Mix_GetMusicType (SDL2mixer_PMix_Music music);
+__EXTERN INTEGER Mix_GroupAvailable (INTEGER tag);
+__EXTERN INTEGER Mix_GroupChannel (INTEGER which, INTEGER tag);
+__EXTERN INTEGER Mix_GroupChannels (INTEGER from, INTEGER to, INTEGER tag);
+__EXTERN INTEGER Mix_GroupCount (INTEGER tag);
+__EXTERN INTEGER Mix_GroupNewer (INTEGER tag);
+__EXTERN INTEGER Mix_GroupOldest (INTEGER tag);
+__EXTERN INTEGER Mix_HaltChannel (INTEGER channel);
+__EXTERN INTEGER Mix_HaltGroup (INTEGER tag);
+__EXTERN INTEGER Mix_HaltMusic (void);
+__EXTERN SDL2mixer_PMix_Music Mix_LoadMUS (LONGINT file);
+__EXTERN SDL2mixer_PMix_Music Mix_LoadMUS_RW (LONGINT rw);
+__EXTERN SDL2mixer_PMix_Chunk Mix_LoadWAV_RW (LONGINT src, INTEGER freesrc);
+__EXTERN INTEGER Mix_OpenAudio (INTEGER frequency, SHORTINT format, INTEGER channels, INTEGER chunksize);
+__EXTERN void Mix_Pause (INTEGER channel);
+__EXTERN void Mix_PauseMusic (void);
+__EXTERN INTEGER Mix_Paused (INTEGER channel);
+__EXTERN INTEGER Mix_PausedMusic (void);
+__EXTERN INTEGER Mix_PlayChannelTimed (INTEGER channel, SDL2mixer_PMix_Chunk chunk, INTEGER loops, INTEGER ticks);
+__EXTERN INTEGER Mix_PlayMusic (SDL2mixer_PMix_Music music, INTEGER loops);
+__EXTERN INTEGER Mix_Playing (INTEGER channel);
+__EXTERN INTEGER Mix_PlayingMusic (void);
+__EXTERN INTEGER Mix_QuerySpec (INTEGER *frequency, SHORTINT *format, INTEGER *channels);
+__EXTERN SDL2mixer_PMix_Chunk Mix_QuickLoad_WAV (LONGINT mem);
+__EXTERN INTEGER Mix_ReserveChannels (INTEGER num);
+__EXTERN void Mix_Resume (INTEGER channel);
+__EXTERN void Mix_ResumeMusic (void);
+__EXTERN void Mix_RewindMusic (void);
+__EXTERN INTEGER Mix_SetDistance (INTEGER channel, BYTE distance);
+__EXTERN INTEGER Mix_SetMusicCMD (LONGINT command);
+__EXTERN INTEGER Mix_SetMusicPosition (REAL position);
+__EXTERN INTEGER Mix_SetPanning (INTEGER channel, BYTE left, BYTE right);
+__EXTERN INTEGER Mix_SetPosition (INTEGER channel, SHORTINT angle, BYTE distance);
+__EXTERN INTEGER Mix_SetReverseStereo (INTEGER channel, INTEGER flip);
+__EXTERN INTEGER Mix_Volume (INTEGER channel, INTEGER volume);
+__EXTERN INTEGER Mix_VolumeChunk (SDL2mixer_PMix_Chunk chunk, INTEGER volume);
+__EXTERN INTEGER Mix_VolumeMusic (INTEGER volume);
+
+#include "SDL2.h0"
+#define SDL2mixer_Mix_FadeInChannel(channel, chunk, loops, ms)  Mix_FadeInChannelTimed(channel, chunk, loops, ms, -1)
+#define SDL2mixer_Mix_GetError()  SDL_GetError()
+#define SDL2mixer_Mix_LoadWAV(file)  Mix_LoadWAV_RW((SYSTEM_ADRINT)SDL_RWFromFile((SYSTEM_PTR)file, (SYSTEM_PTR)"rb"), 1)
+#define SDL2mixer_Mix_PlayChannel(channel, chunk, loops)  Mix_PlayChannelTimed(channel, chunk, loops, -1)
+#define SDL2mixer_Mix_SetError(fmt)  SDL_SetError(fmt)
+
+#endif

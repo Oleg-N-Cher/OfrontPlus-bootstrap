@@ -1,0 +1,17 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef ecoBuffer__oh
+#define ecoBuffer__oh
+
+#include "SYSTEM.oh"
+
+
+import BOOLEAN ecoBuffer_nonempty, ecoBuffer_nonfull;
+
+
+import void ecoBuffer_get (INTEGER *x);
+import void ecoBuffer_put (INTEGER x);
+import void *ecoBuffer__init (void);
+
+
+#endif

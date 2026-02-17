@@ -1,0 +1,55 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef ecoVector__oh
+#define ecoVector__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct ecoVector_ObjectRec *ecoVector_OBJECT;
+
+typedef
+  struct ecoVector_ObjectRec {
+    char _prvt0[1];
+  } ecoVector_ObjectRec;
+
+typedef
+  struct ecoVector_VectorRec *ecoVector_VECTOR;
+
+typedef
+  struct ecoVector_VectorRec {
+    INTEGER _prvt0;
+    char _prvt1[8];
+  } ecoVector_VectorRec;
+
+import ecoVector_OBJECT ecoVector_VECTOR_At (ecoVector_VECTOR vec, INTEGER pos);
+import void ecoVector_VECTOR_Clear (ecoVector_VECTOR vec);
+import void ecoVector_VECTOR_Delete (ecoVector_VECTOR vec, INTEGER pos);
+import ecoVector_OBJECT ecoVector_VECTOR_Head (ecoVector_VECTOR vec);
+import void ecoVector_VECTOR_Insert (ecoVector_VECTOR vec, INTEGER pos, ecoVector_OBJECT e);
+import INTEGER ecoVector_VECTOR_Length (ecoVector_VECTOR vec);
+import ecoVector_OBJECT ecoVector_VECTOR_PopBack (ecoVector_VECTOR vec);
+import void ecoVector_VECTOR_PushBack (ecoVector_VECTOR vec, ecoVector_OBJECT e);
+import void ecoVector_VECTOR_Swap (ecoVector_VECTOR vec, INTEGER p1, INTEGER p2);
+import ecoVector_OBJECT ecoVector_VECTOR_Tail (ecoVector_VECTOR vec);
+#define __ecoVector_VECTOR_At(vec, pos) __SEND(__TYPEOF(vec), ecoVector_VECTOR_At, 0, ecoVector_OBJECT(*)(ecoVector_VECTOR, INTEGER), (vec, pos))
+#define __ecoVector_VECTOR_Clear(vec) __SEND(__TYPEOF(vec), ecoVector_VECTOR_Clear, 1, void(*)(ecoVector_VECTOR), (vec))
+#define __ecoVector_VECTOR_Delete(vec, pos) __SEND(__TYPEOF(vec), ecoVector_VECTOR_Delete, 2, void(*)(ecoVector_VECTOR, INTEGER), (vec, pos))
+#define __ecoVector_VECTOR_Head(vec) __SEND(__TYPEOF(vec), ecoVector_VECTOR_Head, 3, ecoVector_OBJECT(*)(ecoVector_VECTOR), (vec))
+#define __ecoVector_VECTOR_Insert(vec, pos, e) __SEND(__TYPEOF(vec), ecoVector_VECTOR_Insert, 4, void(*)(ecoVector_VECTOR, INTEGER, ecoVector_OBJECT), (vec, pos, e))
+#define __ecoVector_VECTOR_Length(vec) __SEND(__TYPEOF(vec), ecoVector_VECTOR_Length, 5, INTEGER(*)(ecoVector_VECTOR), (vec))
+#define __ecoVector_VECTOR_PopBack(vec) __SEND(__TYPEOF(vec), ecoVector_VECTOR_PopBack, 6, ecoVector_OBJECT(*)(ecoVector_VECTOR), (vec))
+#define __ecoVector_VECTOR_PushBack(vec, e) __SEND(__TYPEOF(vec), ecoVector_VECTOR_PushBack, 7, void(*)(ecoVector_VECTOR, ecoVector_OBJECT), (vec, e))
+#define __ecoVector_VECTOR_Swap(vec, p1, p2) __SEND(__TYPEOF(vec), ecoVector_VECTOR_Swap, 8, void(*)(ecoVector_VECTOR, INTEGER, INTEGER), (vec, p1, p2))
+#define __ecoVector_VECTOR_Tail(vec) __SEND(__TYPEOF(vec), ecoVector_VECTOR_Tail, 9, ecoVector_OBJECT(*)(ecoVector_VECTOR), (vec))
+
+
+
+import void **ecoVector_ObjectRec__typ;
+import void **ecoVector_VectorRec__typ;
+
+import ecoVector_VECTOR ecoVector_Vector (void);
+import void *ecoVector__init (void);
+
+
+#endif

@@ -1,0 +1,25 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef Reals__oh
+#define Reals__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void Reals_Convert (SHORTREAL x, SHORTINT n, CHAR *d, INTEGER d__len);
+import void Reals_ConvertH (SHORTREAL y, CHAR *d, INTEGER d__len);
+import void Reals_ConvertHL (REAL x, CHAR *d, INTEGER d__len);
+import SHORTINT Reals_Expo (SHORTREAL x);
+import SHORTINT Reals_ExpoL (REAL x);
+import void Reals_RealToStr (REAL x, INTEGER digits, CHAR *d, INTEGER d__len);
+import void Reals_RealToStringForm (REAL x, INTEGER precision, INTEGER minW, INTEGER expW, CHAR fillCh, CHAR *s, INTEGER s__len);
+import void Reals_SetExpo (SHORTINT e, SHORTREAL *x);
+import void Reals_SetExpoL (SHORTINT e, REAL *x);
+import SHORTREAL Reals_Ten (SHORTINT e);
+import REAL Reals_TenL (INTEGER n);
+import void *Reals__init (void);
+
+
+#endif

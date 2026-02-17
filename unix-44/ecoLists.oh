@@ -1,0 +1,64 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef ecoLists__oh
+#define ecoLists__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct ecoLists_Node *ecoLists_NodePtr;
+
+typedef
+  void (*ecoLists_DoProc)(ecoLists_NodePtr);
+
+typedef
+  struct ecoLists_List {
+    INTEGER _prvt0;
+    char _prvt1[6];
+  } ecoLists_List;
+
+typedef
+  struct ecoLists_Node {
+    INTEGER _prvt0;
+    char _prvt1[4];
+  } ecoLists_Node;
+
+
+
+import void **ecoLists_Node__typ;
+import void **ecoLists_List__typ;
+
+import void ecoLists_AddBefore (ecoLists_List *list, void **list__typ, ecoLists_NodePtr n, ecoLists_NodePtr x);
+import void ecoLists_AddBehind (ecoLists_List *list, void **list__typ, ecoLists_NodePtr n, ecoLists_NodePtr x);
+import void ecoLists_AddHead (ecoLists_List *list, void **list__typ, ecoLists_NodePtr n);
+import void ecoLists_AddMarkBefore (ecoLists_List *list, void **list__typ, ecoLists_List mark, ecoLists_NodePtr x);
+import void ecoLists_AddMarkBehind (ecoLists_List *list, void **list__typ, ecoLists_List mark, ecoLists_NodePtr x);
+import void ecoLists_AddMarkHead (ecoLists_List *list, void **list__typ, ecoLists_List mark);
+import void ecoLists_AddMarkTail (ecoLists_List *list, void **list__typ, ecoLists_List mark);
+import void ecoLists_AddTail (ecoLists_List *list, void **list__typ, ecoLists_NodePtr n);
+import INTEGER ecoLists_CountElements (ecoLists_List *list, void **list__typ);
+import void ecoLists_DoBackward (ecoLists_List *list, void **list__typ, ecoLists_DoProc proc);
+import void ecoLists_DoForward (ecoLists_List *list, void **list__typ, ecoLists_DoProc proc);
+import BOOLEAN ecoLists_Empty (ecoLists_List *list, void **list__typ);
+import ecoLists_NodePtr ecoLists_GetPred (ecoLists_NodePtr n);
+import ecoLists_NodePtr ecoLists_GetSucc (ecoLists_NodePtr n);
+import void ecoLists_GoBackward (ecoLists_List list, ecoLists_NodePtr *n, INTEGER num);
+import void ecoLists_GoForward (ecoLists_List list, ecoLists_NodePtr *n, INTEGER num);
+import ecoLists_NodePtr ecoLists_Head (ecoLists_List *list, void **list__typ);
+import void ecoLists_Init (ecoLists_List *list, void **list__typ);
+import BOOLEAN ecoLists_IsElement (ecoLists_List *list, void **list__typ, ecoLists_NodePtr e);
+import BOOLEAN ecoLists_Next (ecoLists_NodePtr *n);
+import void ecoLists_Pred (ecoLists_NodePtr *n);
+import BOOLEAN ecoLists_Previous (ecoLists_NodePtr *n);
+import ecoLists_NodePtr ecoLists_RemHead (ecoLists_List *list, void **list__typ);
+import ecoLists_NodePtr ecoLists_RemTail (ecoLists_List *list, void **list__typ);
+import void ecoLists_Remove (ecoLists_List *list, void **list__typ, ecoLists_NodePtr n);
+import void ecoLists_RemoveMark (ecoLists_List *list, void **list__typ, ecoLists_List mark);
+import void ecoLists_SetMark (ecoLists_List *mark, void **mark__typ, ecoLists_NodePtr h, ecoLists_NodePtr t);
+import void ecoLists_Succ (ecoLists_NodePtr *n);
+import void ecoLists_Swap (ecoLists_List *list, void **list__typ, ecoLists_NodePtr a, ecoLists_NodePtr b);
+import ecoLists_NodePtr ecoLists_Tail (ecoLists_List *list, void **list__typ);
+import void *ecoLists__init (void);
+
+
+#endif

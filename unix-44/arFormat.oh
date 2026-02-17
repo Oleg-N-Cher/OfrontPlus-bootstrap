@@ -1,0 +1,33 @@
+/* Ofront+ 1.0 -s2 -44 */
+
+#ifndef arFormat__oh
+#define arFormat__oh
+
+#include "SYSTEM.oh"
+#include "arText.oh"
+#include "arValue.oh"
+
+
+
+
+import void arFormat_Format (arText_Writer *w, void **w__typ, CHAR *fmt, INTEGER fmt__len, arValue_Object *args, INTEGER args__len);
+import arValue_String arFormat_Format0 (CHAR *fmt, INTEGER fmt__len);
+import arValue_String arFormat_Format1 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1);
+import arValue_String arFormat_Format2 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1, arValue_Object p2);
+import arValue_String arFormat_Format3 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1, arValue_Object p2, arValue_Object p3);
+import arValue_String arFormat_Format4 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1, arValue_Object p2, arValue_Object p3, arValue_Object p4);
+import arValue_String arFormat_Format5 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1, arValue_Object p2, arValue_Object p3, arValue_Object p4, arValue_Object p5);
+import void arFormat_FormatList (arText_Writer w, CHAR *fmt, INTEGER fmt__len, arValue_List args);
+import arValue_String arFormat_FormatString (CHAR *fmt, INTEGER fmt__len, arValue_Object *args, INTEGER args__len);
+import void arFormat_Out0 (CHAR *fmt, INTEGER fmt__len);
+import void arFormat_Out1 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1);
+import void arFormat_Out2 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1, arValue_Object p2);
+import void arFormat_Out3 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1, arValue_Object p2, arValue_Object p3);
+import void arFormat_Out4 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1, arValue_Object p2, arValue_Object p3, arValue_Object p4);
+import void arFormat_Out5 (CHAR *fmt, INTEGER fmt__len, arValue_Object p1, arValue_Object p2, arValue_Object p3, arValue_Object p4, arValue_Object p5);
+import void arFormat_Show (arValue_Object o);
+import void arFormat_ShowLn (arValue_Object o);
+import void *arFormat__init (void);
+
+
+#endif

@@ -1,0 +1,109 @@
+/* Ofront+ 1.0 -swC -44 */
+
+#ifndef bbKernel__oh
+#define bbKernel__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  struct bbKernel_Type__rec *bbKernel_Type;
+
+struct bbKernel__1 {
+  INTEGER id;
+  bbKernel_Type struct_;
+};
+
+typedef
+  void (*bbKernel_Command)(void);
+
+typedef
+  struct bbKernel_Directory__rec *bbKernel_Directory;
+
+typedef
+  struct bbKernel_ObjDesc {
+    INTEGER fprint, offs, id;
+    bbKernel_Type struct_;
+  } bbKernel_ObjDesc;
+
+typedef
+  struct bbKernel_Directory__rec {
+    INTEGER num;
+    bbKernel_ObjDesc obj[1000000];
+  } bbKernel_Directory__rec;
+
+typedef
+  void (*bbKernel_Handler)(void);
+
+typedef
+  struct bbKernel_Hook__rec *bbKernel_Hook;
+
+typedef
+  struct bbKernel_Hook__rec {
+    char _prvt0[1];
+  } bbKernel_Hook__rec;
+
+typedef
+  struct bbKernel_Module__rec *bbKernel_Module;
+
+typedef
+  CHAR bbKernel_Utf8Name[256];
+
+typedef
+  struct bbKernel_Module__rec {
+    bbKernel_Module next;
+    SET opts;
+    INTEGER refcnt;
+    SHORTINT compTime[6], loadTime[6];
+    bbKernel_Command body, term;
+    INTEGER nofimps, nofptrs, csize, dsize, rsize, code, data, refs, procBase, varBase;
+    CHAR *names;
+    INTEGER *ptrs;
+    bbKernel_Module *imports;
+    bbKernel_Directory export_;
+    bbKernel_Utf8Name name;
+  } bbKernel_Module__rec;
+
+typedef
+  LONGCHAR bbKernel_Name[256];
+
+typedef
+  bbKernel_ObjDesc *bbKernel_Object;
+
+typedef
+  struct bbKernel_Signature__rec *bbKernel_Signature;
+
+typedef
+  struct bbKernel_Signature__rec {
+    bbKernel_Type retStruct;
+    INTEGER num;
+    struct bbKernel__1 par[1000000];
+  } bbKernel_Signature__rec;
+
+typedef
+  struct bbKernel_Type__rec {
+    INTEGER size;
+    bbKernel_Module mod;
+    INTEGER id;
+    bbKernel_Type base[16];
+    bbKernel_Directory fields;
+    INTEGER ptroffs[1000000];
+  } bbKernel_Type__rec;
+
+
+import INTEGER bbKernel_trapCount;
+
+import void **bbKernel_Hook__rec__typ;
+
+import BOOLEAN bbKernel_IsAlpha (LONGCHAR ch);
+import BOOLEAN bbKernel_IsLower (LONGCHAR ch);
+import BOOLEAN bbKernel_IsUpper (LONGCHAR ch);
+import LONGCHAR bbKernel_Lower (LONGCHAR ch);
+import void bbKernel_MakeFileName (LONGCHAR *name, INTEGER name__len, LONGCHAR *type, INTEGER type__len);
+import void bbKernel_SplitName (LONGCHAR *name, INTEGER name__len, LONGCHAR *head, INTEGER head__len, LONGCHAR *tail, INTEGER tail__len);
+import void bbKernel_StringToUtf8 (LONGCHAR *in, INTEGER in__len, CHAR *out, INTEGER out__len, INTEGER *res);
+import LONGCHAR bbKernel_Upper (LONGCHAR ch);
+import void bbKernel_Utf8ToString (CHAR *in, INTEGER in__len, LONGCHAR *out, INTEGER out__len, INTEGER *res);
+import void *bbKernel__init (void);
+
+
+#endif

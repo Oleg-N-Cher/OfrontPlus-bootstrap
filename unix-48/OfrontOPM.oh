@@ -1,0 +1,80 @@
+/* Ofront+ 1.0 -sC -48 */
+
+#ifndef OfrontOPM__oh
+#define OfrontOPM__oh
+
+#include "SYSTEM.oh"
+
+
+import REAL OfrontOPM_MinReal32, OfrontOPM_MaxReal32, OfrontOPM_InfReal, OfrontOPM_MinReal64, OfrontOPM_MaxReal64;
+import SHORTINT OfrontOPM_SetSize, OfrontOPM_IndexSize, OfrontOPM_MaxSet;
+import LONGINT OfrontOPM_MaxIndex;
+import BOOLEAN OfrontOPM_noerr, OfrontOPM_warning156;
+import INTEGER OfrontOPM_curpos;
+import INTEGER OfrontOPM_errpos;
+import INTEGER OfrontOPM_breakpc;
+import INTEGER OfrontOPM_currFile, OfrontOPM_level;
+import INTEGER OfrontOPM_pc, OfrontOPM_entno;
+import CHAR OfrontOPM_modName[32];
+import CHAR OfrontOPM_objname[64];
+import INTEGER OfrontOPM_checksum;
+import SET OfrontOPM_opt;
+import CHAR OfrontOPM_Lang;
+import SHORTINT OfrontOPM_AdrSize, OfrontOPM_Alignment;
+
+
+import void OfrontOPM_CloseFiles (void);
+import void OfrontOPM_CloseOldSym (void);
+import void OfrontOPM_DeleteNewSym (void);
+import LONGINT OfrontOPM_Div0 (LONGINT x, LONGINT y);
+import void OfrontOPM_FPrint (INTEGER *fp, INTEGER val);
+import void OfrontOPM_FPrintLReal (INTEGER *fp, REAL lr);
+import void OfrontOPM_FPrintReal (INTEGER *fp, SHORTREAL real);
+import void OfrontOPM_FPrintSet (INTEGER *fp, SET set);
+import void OfrontOPM_Get (LONGCHAR *longch);
+import void OfrontOPM_GetNoChk (LONGCHAR *longch);
+import void OfrontOPM_GetUtf8 (CHAR *str, INTEGER str__len, INTEGER *val, INTEGER *idx);
+import void OfrontOPM_Init (CHAR *msg, INTEGER msg__len, BOOLEAN *done);
+import void OfrontOPM_InitOptions (void);
+import REAL OfrontOPM_IntPower (REAL x, INTEGER n);
+import void OfrontOPM_LogW (CHAR ch);
+import void OfrontOPM_LogWLn (void);
+import void OfrontOPM_LogWNum (INTEGER i, INTEGER len);
+import void OfrontOPM_LogWStr (CHAR *s, INTEGER s__len);
+import LONGINT OfrontOPM_Lsl (LONGINT x, INTEGER n);
+import LONGINT OfrontOPM_Lsr (LONGINT x, INTEGER n);
+import void OfrontOPM_Mark (SHORTINT n, INTEGER pos);
+import void OfrontOPM_NewSym (CHAR *modName, INTEGER modName__len);
+import void OfrontOPM_OldSym (CHAR *modName, INTEGER modName__len, BOOLEAN *done);
+import void OfrontOPM_OpenFiles (CHAR *moduleName, INTEGER moduleName__len);
+import void OfrontOPM_OpenPar (CHAR *title, INTEGER title__len, CHAR *cmd, INTEGER cmd__len);
+import void OfrontOPM_PromoteIntConstToLInt (void);
+import void OfrontOPM_PutUtf8 (CHAR *str, INTEGER str__len, INTEGER val, INTEGER *idx);
+import void OfrontOPM_RegisterNewSym (void);
+import LONGINT OfrontOPM_Rem0 (LONGINT x, LONGINT y);
+import LONGINT OfrontOPM_Ror (LONGINT x, INTEGER n);
+import void OfrontOPM_SymRCh (CHAR *ch);
+import LONGINT OfrontOPM_SymRInt (void);
+import void OfrontOPM_SymRLReal (REAL *lr);
+import void OfrontOPM_SymRReal (SHORTREAL *r);
+import void OfrontOPM_SymRSet (SET *s);
+import void OfrontOPM_SymWCh (CHAR ch);
+import void OfrontOPM_SymWInt (LONGINT x);
+import void OfrontOPM_SymWLReal (REAL lr);
+import void OfrontOPM_SymWReal (SHORTREAL r);
+import void OfrontOPM_SymWSet (SET s);
+import LONGINT OfrontOPM_UDiv (LONGINT x, LONGINT y);
+import void OfrontOPM_Write (CHAR ch);
+import void OfrontOPM_WriteHex (INTEGER i);
+import void OfrontOPM_WriteInt (LONGINT i);
+import void OfrontOPM_WriteLn (void);
+import void OfrontOPM_WriteModPos (void);
+import void OfrontOPM_WriteReal (REAL r, CHAR suffx);
+import void OfrontOPM_WriteString (CHAR *s, INTEGER s__len);
+import void OfrontOPM_WriteTab (void);
+import BOOLEAN OfrontOPM_eofSF (void);
+import void OfrontOPM_err (SHORTINT n);
+import void *OfrontOPM__init (void);
+
+
+#endif
