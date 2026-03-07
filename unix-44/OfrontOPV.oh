@@ -1,0 +1,19 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef OfrontOPV__oh
+#define OfrontOPV__oh
+
+#include "SYSTEM.oh"
+#include "OfrontOPT.oh"
+
+
+
+
+import void OfrontOPV_AdrAndSize (OfrontOPT_Object topScope);
+import void OfrontOPV_Init (void);
+import void OfrontOPV_Module (OfrontOPT_Node prog);
+import void OfrontOPV_TypSize (OfrontOPT_Struct typ);
+import void *OfrontOPV__init (void);
+
+
+#endif
