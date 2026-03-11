@@ -1,0 +1,22 @@
+/* Ofront+ 1.0 -s2 -88 */
+
+#ifndef arOut__oh
+#define arOut__oh
+
+#include "SYSTEM.oh"
+
+
+
+
+import void arOut_Bool (BOOLEAN value);
+import void arOut_Char (CHAR value);
+import void arOut_Flush (void);
+import void arOut_Hex (INTEGER value);
+import void arOut_Int (INTEGER value);
+import void arOut_Ln (void);
+import void arOut_Real (REAL value);
+import void arOut_String (CHAR *text, INTEGER text__len);
+import void *arOut__init (void);
+
+
+#endif
