@@ -1,0 +1,44 @@
+/* Ofront+ 1.0 -sC -44 */
+
+#ifndef MathL__oh
+#define MathL__oh
+
+#include "SYSTEM.oh"
+
+
+import REAL MathL_INF;
+
+
+import BOOLEAN MathL_IsRMathException (void);
+import REAL MathL_arccos (REAL x);
+import REAL MathL_arccosh (REAL x);
+import REAL MathL_arcsin (REAL x);
+import REAL MathL_arcsinh (REAL x);
+import REAL MathL_arctan (REAL x);
+import REAL MathL_arctan2 (REAL xn, REAL xd);
+import REAL MathL_arctanh (REAL x);
+import REAL MathL_cos (REAL x);
+import REAL MathL_cosh (REAL x);
+import REAL MathL_exp (REAL x);
+import INTEGER MathL_exponent (REAL x);
+import REAL MathL_fraction (REAL x);
+import REAL MathL_ipower (REAL x, SHORTINT base);
+import REAL MathL_ln (REAL x);
+import REAL MathL_log (REAL x, REAL base);
+import REAL MathL_power (REAL base, REAL exp);
+import REAL MathL_pred (REAL x);
+import INTEGER MathL_round (REAL x);
+import REAL MathL_scale (REAL x, INTEGER n);
+import REAL MathL_sign (REAL x);
+import REAL MathL_sin (REAL x);
+import void MathL_sincos (REAL x, REAL *Sin, REAL *Cos);
+import REAL MathL_sinh (REAL x);
+import REAL MathL_sqrt (REAL x);
+import REAL MathL_succ (REAL x);
+import REAL MathL_tan (REAL x);
+import REAL MathL_tanh (REAL x);
+import REAL MathL_ulp (REAL x);
+import void *MathL__init (void);
+
+
+#endif

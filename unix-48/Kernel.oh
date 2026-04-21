@@ -1,0 +1,29 @@
+/* Ofront+ 1.0 -sxtapC -48 */
+
+#ifndef Kernel__oh
+#define Kernel__oh
+
+#include "SYSTEM.oh"
+
+typedef
+  void (*Kernel_HaltProcedure)(INTEGER, INTEGER, INTEGER);
+
+typedef
+  void (*Kernel_SignalHandler)(INTEGER);
+
+
+import INTEGER Kernel_HaltCode;
+
+
+import void Kernel_Assert (INTEGER code, INTEGER mod, INTEGER pos);
+import void Kernel_Exit (INTEGER code);
+import void Kernel_Halt (INTEGER code, INTEGER mod, INTEGER pos);
+import void Kernel_SetAssert (Kernel_HaltProcedure p);
+import void Kernel_SetHalt (Kernel_HaltProcedure p);
+import void *Kernel__init (void);
+
+#define Kernel_SetBadInstructionHandler(h)  SystemSetBadInstructionHandler(h)
+#define Kernel_SetInterruptHandler(h)  SystemSetInterruptHandler(h)
+#define Kernel_SetQuitHandler(h)  SystemSetQuitHandler(h)
+
+#endif
